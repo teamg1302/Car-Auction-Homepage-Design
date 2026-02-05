@@ -19,7 +19,6 @@ import {
   TrendingUp,
   Lock,
   Eye,
-  MessageSquare,
 } from 'lucide-react';
 import { ROUTES } from '@/constants';
 import gsap from 'gsap';
@@ -167,7 +166,7 @@ const paymentFeatures = [
 export function HowItWorksPage() {
   const pageRef = useRef<HTMLElement>(null);
   const heroRef = useRef<HTMLDivElement>(null);
-  const sectionRefs = useRef<(HTMLDivElement | null)[]>([]);
+  const sectionRefs = useRef<(HTMLElement | null)[]>([]);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -284,7 +283,7 @@ export function HowItWorksPage() {
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 mb-8 sm:mb-12">
-              {buyerSteps.map((step, index) => (
+              {buyerSteps.map((step) => (
                 <div
                   key={step.id}
                   className="group relative bg-charcoal-light rounded-2xl p-8 border border-white/[0.06] card-shadow hover-lift overflow-hidden"
@@ -340,7 +339,7 @@ export function HowItWorksPage() {
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {sellerSteps.map((step, index) => (
+              {sellerSteps.map((step) => (
                 <div
                   key={step.id}
                   className="group relative bg-charcoal rounded-2xl p-8 border border-white/[0.06] card-shadow hover-lift overflow-hidden"

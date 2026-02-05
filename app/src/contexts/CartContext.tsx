@@ -1,6 +1,6 @@
 // Cart/Watchlist Context - For managing watched auctions
-import { createContext, useContext, useState, ReactNode } from 'react';
-import type { Auction } from '@/types';
+import { createContext, useContext, useState } from 'react';
+import type { ReactNode } from 'react';
 
 interface CartContextType {
   watchedAuctions: string[];

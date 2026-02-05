@@ -21,7 +21,6 @@ import {
   Image as ImageIcon,
   MapPin,
   DollarSign,
-  Calendar,
   Car,
   Info,
 } from 'lucide-react';
@@ -877,7 +876,7 @@ export function SellPage() {
                 className="absolute top-1/2 left-0 h-0.5 bg-racing-red transition-all duration-500 -translate-y-1/2"
                 style={{ width: `${((currentStep - 1) / (STEPS.length - 1)) * 100}%` }}
               />
-              {STEPS.map((step, index) => {
+              {STEPS.map((step) => {
                 const StepIcon = step.icon;
                 const isActive = currentStep === step.id;
                 const isCompleted = currentStep > step.id;

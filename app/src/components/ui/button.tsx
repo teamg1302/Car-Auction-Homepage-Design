@@ -56,14 +56,18 @@ function Button({
   children.forEach((child) => {
     // Check if it's likely an icon component
     // Lucide icons are React components (not strings) and often have className with size classes
-    const isIcon = React.isValidElement(child) && 
-      typeof child.type !== 'string' && // Not a native HTML element like 'div', 'span', etc.
-      (child.type === 'svg' || // Direct SVG
-       (child.props && typeof child.props.className === 'string' && 
-        (child.props.className.includes('w-') || child.props.className.includes('h-') || child.props.className.includes('size-'))))
-    
-    if (isIcon) {
-      icons.push(child)
+    if (React.isValidElement(child)) {
+      const childProps = child.props as { className?: string } | null;
+      const isIcon = typeof child.type !== 'string' && // Not a native HTML element like 'div', 'span', etc.
+        (child.type === 'svg' || // Direct SVG
+         (childProps && typeof childProps.className === 'string' && 
+          (childProps.className.includes('w-') || childProps.className.includes('h-') || childProps.className.includes('size-'))))
+      
+      if (isIcon) {
+        icons.push(child)
+      } else {
+        text.push(child)
+      }
     } else {
       text.push(child)
     }

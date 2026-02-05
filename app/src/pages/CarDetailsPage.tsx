@@ -11,7 +11,6 @@ import {
   Gauge, 
   Fuel, 
   Settings2, 
-  Calendar,
   Shield,
   ArrowLeft,
   Heart,

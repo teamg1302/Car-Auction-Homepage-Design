@@ -1,9 +1,7 @@
 // Search Filters Component
-import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Label } from '@/components/ui/label';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
-import { ChevronDown } from 'lucide-react';
 import { CAR_MAKES, CAR_TYPES, PRICE_RANGES, TRANSMISSION_TYPES, FUEL_TYPES } from '@/constants';
 import type { SearchFilters } from '@/types';
 

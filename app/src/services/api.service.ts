@@ -1,6 +1,5 @@
 // Base API service for future backend integration
-import { API_ENDPOINTS } from '@/constants';
-import type { ApiResponse, PaginatedResponse } from '@/types';
+import type { ApiResponse } from '@/types';
 
 class ApiService {
   private baseURL: string;
