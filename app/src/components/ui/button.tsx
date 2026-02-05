@@ -58,10 +58,10 @@ function Button({
     // Lucide icons are React components (not strings) and often have className with size classes
     if (React.isValidElement(child)) {
       const childProps = child.props as { className?: string } | null;
-      const isIcon = typeof child.type !== 'string' && // Not a native HTML element like 'div', 'span', etc.
-        (child.type === 'svg' || // Direct SVG
-         (childProps && typeof childProps.className === 'string' && 
-          (childProps.className.includes('w-') || childProps.className.includes('h-') || childProps.className.includes('size-'))))
+      const isIcon = typeof child.type === 'string' 
+        ? child.type === 'svg' // Direct SVG element
+        : childProps && typeof childProps.className === 'string' && // React component with className
+          (childProps.className.includes('w-') || childProps.className.includes('h-') || childProps.className.includes('size-'))
       
       if (isIcon) {
         icons.push(child)
