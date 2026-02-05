@@ -16,7 +16,24 @@ When setting up your static site on Render:
 - **Name**: Your site name
 - **Environment**: Static Site
 - **Build Command**: `cd app && npm install && npm run build`
+- **Publish Directory**: `app/dist` OR `dist` (see troubleshooting below)
+
+### ⚠️ IMPORTANT: Publish Directory Configuration
+
+The publish directory path depends on how Render executes your build command:
+
+**Option 1: If Render runs commands from repository root (most common)**
 - **Publish Directory**: `app/dist`
+- This is correct if Render starts from the root directory
+
+**Option 2: If Render changes to app directory first**
+- **Publish Directory**: `dist`
+- Use this if `app/dist` doesn't work
+
+**How to determine which to use:**
+1. Check Render's build logs - see where the build command runs from
+2. If you see the build output showing paths relative to `app/`, use `dist`
+3. If build logs show paths from root, use `app/dist`
 
 ### Important Notes
 
