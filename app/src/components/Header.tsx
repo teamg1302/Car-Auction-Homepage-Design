@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
+import { Tooltip, TooltipTrigger, TooltipContent } from '@/components/ui/tooltip';
 import { Menu, X, Zap, Sun, Moon } from 'lucide-react';
 import { useTheme } from 'next-themes';
 import { ROUTES } from '@/constants';
@@ -17,11 +18,27 @@ export function Header() {
   const location = useLocation();
   const { theme, setTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
+  const [showTooltip, setShowTooltip] = useState(false);
 
   // Avoid hydration mismatch
   useEffect(() => {
     setMounted(true);
   }, []);
+
+  // Show tooltip on first load for 3 seconds
+  useEffect(() => {
+    if (mounted) {
+      const hasSeenTooltip = localStorage.getItem('theme-tooltip-seen');
+      if (!hasSeenTooltip) {
+        setShowTooltip(true);
+        const timer = setTimeout(() => {
+          setShowTooltip(false);
+          localStorage.setItem('theme-tooltip-seen', 'true');
+        }, 3000);
+        return () => clearTimeout(timer);
+      }
+    }
+  }, [mounted]);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -86,18 +103,29 @@ export function Header() {
           <div className="hidden md:flex items-center gap-5">
             {/* Theme Toggle */}
             {mounted && (
-              <button
-                onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
-                className="p-2 rounded-lg dark:text-white/60 text-foreground/60 dark:hover:text-white hover:text-foreground dark:hover:bg-white/10 hover:bg-black/10 transition-all duration-300 relative group"
-                aria-label="Toggle theme"
-              >
-                {theme === 'dark' ? (
-                  <Sun className="w-5 h-5" />
-                ) : (
-                  <Moon className="w-5 h-5" />
-                )}
-                <span className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-0 h-0.5 bg-racing-red group-hover:w-full transition-all duration-300" />
-              </button>
+              <Tooltip open={showTooltip} onOpenChange={setShowTooltip}>
+                <TooltipTrigger asChild>
+                  <button
+                    onClick={() => {
+                      setTheme(theme === 'dark' ? 'light' : 'dark');
+                      setShowTooltip(false);
+                      localStorage.setItem('theme-tooltip-seen', 'true');
+                    }}
+                    className="p-2 rounded-lg dark:text-white/60 text-foreground/60 dark:hover:text-white hover:text-foreground dark:hover:bg-white/10 hover:bg-black/10 transition-all duration-300 relative group"
+                    aria-label="Toggle theme"
+                  >
+                    {theme === 'dark' ? (
+                      <Sun className="w-5 h-5" />
+                    ) : (
+                      <Moon className="w-5 h-5" />
+                    )}
+                    <span className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-0 h-0.5 bg-racing-red group-hover:w-full transition-all duration-300" />
+                  </button>
+                </TooltipTrigger>
+                <TooltipContent side="bottom" className="dark:bg-charcoal-light bg-card dark:text-white text-foreground dark:border-white/10 border-black/10">
+                  <p>Switch color theme</p>
+                </TooltipContent>
+              </Tooltip>
             )}
             <Link
               to={ROUTES.SIGN_IN}
