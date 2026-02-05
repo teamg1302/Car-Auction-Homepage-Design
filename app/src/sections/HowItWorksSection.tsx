@@ -116,13 +116,13 @@ export function HowItWorksSection() {
     <section
       ref={sectionRef}
       id="how-it-works"
-      className="relative w-full min-h-screen py-12 md:py-16 lg:py-0 lg:h-screen overflow-hidden bg-charcoal flex items-center justify-center"
+      className="relative w-full min-h-screen py-12 md:py-16 lg:py-0 lg:h-screen overflow-hidden dark:bg-charcoal bg-background flex items-center justify-center"
     >
       <div className="w-full px-4 sm:px-6 lg:px-12">
         {/* Section Title */}
         <h2
           ref={titleRef}
-          className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl text-white text-center mb-8 md:mb-12 lg:mb-16 tracking-[0.02em] relative"
+          className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl dark:text-white text-foreground text-center mb-8 md:mb-12 lg:mb-16 tracking-[0.02em] relative"
         >
           <span className="block">HOW BIDDING</span>
           <span className="block text-gradient-accent">WORKS</span>
@@ -135,14 +135,14 @@ export function HowItWorksSection() {
             <div
               key={step.id}
               ref={(el) => { cardsRef.current[index] = el; }}
-              className="group relative bg-charcoal-light rounded-2xl p-6 sm:p-8 border border-white/[0.06] card-shadow hover-lift overflow-hidden"
+              className="group relative dark:bg-charcoal-light bg-card rounded-2xl p-6 sm:p-8 dark:border border-white/[0.06] border-black/[0.08] card-shadow hover-lift overflow-hidden"
             >
               {/* Background Gradient */}
               <div className="absolute inset-0 bg-gradient-to-br from-racing-red/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               
               {/* Step Number */}
               <div className="relative">
-                <span className="font-display font-bold text-6xl text-white/5">
+                <span className="font-display font-bold text-6xl dark:text-white/5 text-foreground/5">
                   {step.number}
                 </span>
               </div>
@@ -156,10 +156,10 @@ export function HowItWorksSection() {
 
               {/* Content */}
               <div className="relative">
-                <h3 className="font-display font-semibold text-xl text-white mb-3">
+                <h3 className="font-display font-semibold text-xl dark:text-white text-foreground mb-3">
                   {step.title}
                 </h3>
-                <p className="text-white/60 text-sm leading-relaxed">
+                <p className="dark:text-white/60 text-foreground/60 text-sm leading-relaxed">
                   {step.description}
                 </p>
               </div>

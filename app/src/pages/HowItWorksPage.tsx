@@ -231,15 +231,15 @@ export function HowItWorksPage() {
         className="relative w-full py-24 md:py-32 overflow-hidden"
         style={{ opacity: 0 }}
       >
-        <div className="absolute inset-0 mesh-gradient opacity-40" />
+        <div className="absolute inset-0 mesh-gradient dark:opacity-40 opacity-25" />
         <div className="relative z-10 w-full px-4 sm:px-6 lg:px-12">
           <div className="max-w-4xl mx-auto text-center">
-            <h1 className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl text-white mb-4 sm:mb-6 tracking-[0.02em] relative">
+            <h1 className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl dark:text-white text-foreground mb-4 sm:mb-6 tracking-[0.02em] relative">
               <span className="block">HOW IT</span>
               <span className="block text-gradient-accent">WORKS</span>
               <span className="absolute -bottom-4 left-1/2 -translate-x-1/2 w-24 h-1 bg-gradient-to-r from-transparent via-racing-red to-transparent" />
             </h1>
-            <p className="text-base sm:text-lg md:text-xl text-white/70 max-w-2xl mx-auto mb-8 sm:mb-12 leading-relaxed px-4 sm:px-0">
+            <p className="text-base sm:text-lg md:text-xl dark:text-white/70 text-foreground/70 max-w-2xl mx-auto mb-8 sm:mb-12 leading-relaxed px-4 sm:px-0">
               Everything you need to know about buying and selling cars through our auction platform.
               Simple, transparent, and designed for car enthusiasts.
             </p>
@@ -252,7 +252,7 @@ export function HowItWorksPage() {
               <Link to={ROUTES.BROWSE}>
                 <Button
                   variant="outline"
-                  className="border-white/20 text-white hover:bg-white/10 hover:border-white/30 px-8 py-3 rounded-xl uppercase tracking-wider"
+                  className="dark:border-white/20 border-black/20 dark:text-white text-foreground dark:hover:bg-white/10 hover:bg-black/10 dark:hover:border-white/30 hover:border-black/30 px-8 py-3 rounded-xl uppercase tracking-wider"
                 >
                   Browse Auctions
                 </Button>
@@ -272,12 +272,12 @@ export function HowItWorksPage() {
         <div className="w-full px-4 sm:px-6 lg:px-12">
           <div className="max-w-7xl mx-auto">
             <div className="text-center mb-10 sm:mb-12 md:mb-16">
-              <h2 className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl text-white mb-3 sm:mb-4 tracking-[0.02em] relative">
+              <h2 className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl dark:text-white text-foreground mb-3 sm:mb-4 tracking-[0.02em] relative">
                 <span className="block">FOR</span>
                 <span className="block text-gradient-accent">BUYERS</span>
                 <span className="absolute -bottom-4 left-1/2 -translate-x-1/2 w-24 h-1 bg-gradient-to-r from-transparent via-racing-red to-transparent" />
               </h2>
-              <p className="text-white/60 text-base sm:text-lg max-w-2xl mx-auto px-4 sm:px-0">
+              <p className="dark:text-white/60 text-foreground/60 text-base sm:text-lg max-w-2xl mx-auto px-4 sm:px-0">
                 Find your dream car and bid with confidence. Here's how the buying process works.
               </p>
             </div>
@@ -286,12 +286,12 @@ export function HowItWorksPage() {
               {buyerSteps.map((step) => (
                 <div
                   key={step.id}
-                  className="group relative bg-charcoal-light rounded-2xl p-8 border border-white/[0.06] card-shadow hover-lift overflow-hidden"
+                  className="group relative dark:bg-charcoal-light bg-card rounded-2xl p-8 dark:border border-white/[0.06] border-black/[0.08] card-shadow hover-lift overflow-hidden"
                 >
                   <div className="absolute inset-0 bg-gradient-to-br from-racing-red/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
                   <div className="relative">
-                    <span className="font-display font-bold text-6xl text-white/5">
+                    <span className="font-display font-bold text-6xl dark:text-white/5 text-foreground/5">
                       {step.number}
                     </span>
                   </div>
@@ -303,10 +303,10 @@ export function HowItWorksPage() {
                   </div>
 
                   <div className="relative">
-                    <h3 className="font-display font-semibold text-xl text-white mb-3">
+                    <h3 className="font-display font-semibold text-xl dark:text-white text-foreground mb-3">
                       {step.title}
                     </h3>
-                    <p className="text-white/60 text-sm leading-relaxed">{step.description}</p>
+                    <p className="dark:text-white/60 text-foreground/60 text-sm leading-relaxed">{step.description}</p>
                   </div>
 
                   <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-racing-red/0 via-racing-red/50 to-racing-red/0 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
@@ -322,17 +322,17 @@ export function HowItWorksPage() {
         ref={(el) => {
           sectionRefs.current[1] = el;
         }}
-        className="relative w-full py-16 sm:py-20 md:py-28 bg-charcoal-light/30"
+        className="relative w-full py-16 sm:py-20 md:py-28 dark:bg-charcoal-light/30 bg-card/30"
       >
         <div className="w-full px-4 sm:px-6 lg:px-12">
           <div className="max-w-7xl mx-auto">
             <div className="text-center mb-10 sm:mb-12 md:mb-16">
-              <h2 className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl text-white mb-3 sm:mb-4 tracking-[0.02em] relative">
+              <h2 className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl dark:text-white text-foreground mb-3 sm:mb-4 tracking-[0.02em] relative">
                 <span className="block">FOR</span>
                 <span className="block text-gradient-accent">SELLERS</span>
                 <span className="absolute -bottom-4 left-1/2 -translate-x-1/2 w-24 h-1 bg-gradient-to-r from-transparent via-racing-red to-transparent" />
               </h2>
-              <p className="text-white/60 text-base sm:text-lg max-w-2xl mx-auto px-4 sm:px-0">
+              <p className="dark:text-white/60 text-foreground/60 text-base sm:text-lg max-w-2xl mx-auto px-4 sm:px-0">
                 List your vehicle and reach thousands of serious buyers. Here's how to sell your car
                 through our platform.
               </p>
@@ -342,12 +342,12 @@ export function HowItWorksPage() {
               {sellerSteps.map((step) => (
                 <div
                   key={step.id}
-                  className="group relative bg-charcoal rounded-2xl p-8 border border-white/[0.06] card-shadow hover-lift overflow-hidden"
+                  className="group relative dark:bg-charcoal bg-background rounded-2xl p-8 dark:border border-white/[0.06] border-black/[0.08] card-shadow hover-lift overflow-hidden"
                 >
                   <div className="absolute inset-0 bg-gradient-to-br from-racing-red/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
                   <div className="relative">
-                    <span className="font-display font-bold text-6xl text-white/5">
+                    <span className="font-display font-bold text-6xl dark:text-white/5 text-foreground/5">
                       {step.number}
                     </span>
                   </div>
@@ -359,10 +359,10 @@ export function HowItWorksPage() {
                   </div>
 
                   <div className="relative">
-                    <h3 className="font-display font-semibold text-xl text-white mb-3">
+                    <h3 className="font-display font-semibold text-xl dark:text-white text-foreground mb-3">
                       {step.title}
                     </h3>
-                    <p className="text-white/60 text-sm leading-relaxed">{step.description}</p>
+                    <p className="dark:text-white/60 text-foreground/60 text-sm leading-relaxed">{step.description}</p>
                   </div>
 
                   <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-racing-red/0 via-racing-red/50 to-racing-red/0 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
@@ -391,12 +391,12 @@ export function HowItWorksPage() {
         <div className="w-full px-4 sm:px-6 lg:px-12">
           <div className="max-w-7xl mx-auto">
             <div className="text-center mb-10 sm:mb-12 md:mb-16">
-              <h2 className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl text-white mb-3 sm:mb-4 tracking-[0.02em] relative">
+              <h2 className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl dark:text-white text-foreground mb-3 sm:mb-4 tracking-[0.02em] relative">
                 <span className="block">AUCTION</span>
                 <span className="block text-gradient-accent">FEATURES</span>
                 <span className="absolute -bottom-4 left-1/2 -translate-x-1/2 w-24 h-1 bg-gradient-to-r from-transparent via-racing-red to-transparent" />
               </h2>
-              <p className="text-white/60 text-base sm:text-lg max-w-2xl mx-auto px-4 sm:px-0">
+              <p className="dark:text-white/60 text-foreground/60 text-base sm:text-lg max-w-2xl mx-auto px-4 sm:px-0">
                 Our platform is built with fairness and transparency in mind. Here's what makes our
                 auctions special.
               </p>
@@ -408,15 +408,15 @@ export function HowItWorksPage() {
                   key={index}
                   className="group glass-card p-8 hover-lift relative overflow-hidden"
                 >
-                  <div className="absolute inset-0 mesh-gradient opacity-30" />
+                  <div className="absolute inset-0 mesh-gradient dark:opacity-30 opacity-20" />
                   <div className="relative z-10">
                     <div className="w-16 h-16 rounded-xl bg-racing-red/10 flex items-center justify-center mb-6 group-hover:bg-racing-red/20 transition-colors duration-300">
                       <feature.icon className="w-8 h-8 text-racing-red" />
                     </div>
-                    <h3 className="font-display font-semibold text-2xl text-white mb-3">
+                    <h3 className="font-display font-semibold text-2xl dark:text-white text-foreground mb-3">
                       {feature.title}
                     </h3>
-                    <p className="text-white/60 leading-relaxed">{feature.description}</p>
+                    <p className="dark:text-white/60 text-foreground/60 leading-relaxed">{feature.description}</p>
                   </div>
                 </div>
               ))}
@@ -430,17 +430,17 @@ export function HowItWorksPage() {
         ref={(el) => {
           sectionRefs.current[3] = el;
         }}
-        className="relative w-full py-16 sm:py-20 md:py-28 bg-charcoal-light/30"
+        className="relative w-full py-16 sm:py-20 md:py-28 dark:bg-charcoal-light/30 bg-card/30"
       >
         <div className="w-full px-4 sm:px-6 lg:px-12">
           <div className="max-w-7xl mx-auto">
             <div className="text-center mb-10 sm:mb-12 md:mb-16">
-              <h2 className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl text-white mb-3 sm:mb-4 tracking-[0.02em] relative">
+              <h2 className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl dark:text-white text-foreground mb-3 sm:mb-4 tracking-[0.02em] relative">
                 <span className="block">PAYMENT &</span>
                 <span className="block text-gradient-accent">TRANSACTIONS</span>
                 <span className="absolute -bottom-4 left-1/2 -translate-x-1/2 w-24 h-1 bg-gradient-to-r from-transparent via-racing-red to-transparent" />
               </h2>
-              <p className="text-white/60 text-base sm:text-lg max-w-2xl mx-auto px-4 sm:px-0">
+              <p className="dark:text-white/60 text-foreground/60 text-base sm:text-lg max-w-2xl mx-auto px-4 sm:px-0">
                 Secure, transparent, and straightforward. Here's how payments work on our platform.
               </p>
             </div>
@@ -451,15 +451,15 @@ export function HowItWorksPage() {
                   key={index}
                   className="group glass-card p-8 hover-lift relative overflow-hidden"
                 >
-                  <div className="absolute inset-0 mesh-gradient opacity-30" />
+                  <div className="absolute inset-0 mesh-gradient dark:opacity-30 opacity-20" />
                   <div className="relative z-10">
                     <div className="w-16 h-16 rounded-xl bg-racing-red/10 flex items-center justify-center mb-6 group-hover:bg-racing-red/20 transition-colors duration-300">
                       <feature.icon className="w-8 h-8 text-racing-red" />
                     </div>
-                    <h3 className="font-display font-semibold text-2xl text-white mb-3">
+                    <h3 className="font-display font-semibold text-2xl dark:text-white text-foreground mb-3">
                       {feature.title}
                     </h3>
-                    <p className="text-white/60 leading-relaxed">{feature.description}</p>
+                    <p className="dark:text-white/60 text-foreground/60 leading-relaxed">{feature.description}</p>
                   </div>
                 </div>
               ))}
@@ -478,12 +478,12 @@ export function HowItWorksPage() {
         <div className="w-full px-4 sm:px-6 lg:px-12">
           <div className="max-w-7xl mx-auto">
             <div className="text-center mb-10 sm:mb-12 md:mb-16">
-              <h2 className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl text-white mb-3 sm:mb-4 tracking-[0.02em] relative">
+              <h2 className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl dark:text-white text-foreground mb-3 sm:mb-4 tracking-[0.02em] relative">
                 <span className="block">USER</span>
                 <span className="block text-gradient-accent">FEATURES</span>
                 <span className="absolute -bottom-4 left-1/2 -translate-x-1/2 w-24 h-1 bg-gradient-to-r from-transparent via-racing-red to-transparent" />
               </h2>
-              <p className="text-white/60 text-base sm:text-lg max-w-2xl mx-auto px-4 sm:px-0">
+              <p className="dark:text-white/60 text-foreground/60 text-base sm:text-lg max-w-2xl mx-auto px-4 sm:px-0">
                 Powerful tools to help you track auctions, manage bids, and stay organized.
               </p>
             </div>
@@ -495,10 +495,10 @@ export function HowItWorksPage() {
                   <div className="w-16 h-16 rounded-xl bg-racing-red/10 flex items-center justify-center mb-6 group-hover:bg-racing-red/20 transition-colors duration-300">
                     <Heart className="w-8 h-8 text-racing-red" />
                   </div>
-                  <h3 className="font-display font-semibold text-2xl text-white mb-3">
+                  <h3 className="font-display font-semibold text-2xl dark:text-white text-foreground mb-3">
                     Watchlist
                   </h3>
-                  <p className="text-white/60 leading-relaxed">
+                  <p className="dark:text-white/60 text-foreground/60 leading-relaxed">
                     Save auctions you're interested in to your watchlist. Get notified when they're
                     ending soon or when new listings match your preferences.
                   </p>
@@ -511,10 +511,10 @@ export function HowItWorksPage() {
                   <div className="w-16 h-16 rounded-xl bg-racing-red/10 flex items-center justify-center mb-6 group-hover:bg-racing-red/20 transition-colors duration-300">
                     <Gavel className="w-8 h-8 text-racing-red" />
                   </div>
-                  <h3 className="font-display font-semibold text-2xl text-white mb-3">
+                  <h3 className="font-display font-semibold text-2xl dark:text-white text-foreground mb-3">
                     Bid History
                   </h3>
-                  <p className="text-white/60 leading-relaxed">
+                  <p className="dark:text-white/60 text-foreground/60 leading-relaxed">
                     View your complete bidding history, track all your active bids, and see which
                     auctions you've won or lost. Everything in one place.
                   </p>
@@ -527,10 +527,10 @@ export function HowItWorksPage() {
                   <div className="w-16 h-16 rounded-xl bg-racing-red/10 flex items-center justify-center mb-6 group-hover:bg-racing-red/20 transition-colors duration-300">
                     <FileText className="w-8 h-8 text-racing-red" />
                   </div>
-                  <h3 className="font-display font-semibold text-2xl text-white mb-3">
+                  <h3 className="font-display font-semibold text-2xl dark:text-white text-foreground mb-3">
                     Purchase & Sales Overview
                   </h3>
-                  <p className="text-white/60 leading-relaxed">
+                  <p className="dark:text-white/60 text-foreground/60 leading-relaxed">
                     Manage all your purchases and sales from your dashboard. View transaction
                     details, download receipts, and track vehicle transfers.
                   </p>
@@ -548,18 +548,18 @@ export function HowItWorksPage() {
         }}
         className="relative w-full py-16 sm:py-20 md:py-28"
       >
-        <div className="absolute inset-0 mesh-gradient opacity-40" />
+        <div className="absolute inset-0 mesh-gradient dark:opacity-40 opacity-25" />
         <div className="relative z-10 w-full px-4 sm:px-6 lg:px-12">
           <div className="max-w-4xl mx-auto text-center">
             <div className="glass-card-strong p-6 sm:p-8 md:p-12 lg:p-16 relative overflow-hidden">
-              <div className="absolute inset-0 mesh-gradient opacity-50" />
+              <div className="absolute inset-0 mesh-gradient dark:opacity-50 opacity-30" />
               <div className="relative z-10">
-                <h2 className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl text-white mb-4 sm:mb-6 tracking-[0.02em] relative">
+                <h2 className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl dark:text-white text-foreground mb-4 sm:mb-6 tracking-[0.02em] relative">
                   <span className="block">READY TO</span>
                   <span className="block text-gradient-accent">GET STARTED?</span>
                   <span className="absolute -bottom-4 left-1/2 -translate-x-1/2 w-24 h-1 bg-gradient-to-r from-transparent via-racing-red to-transparent" />
                 </h2>
-                <p className="text-white/70 text-base sm:text-lg mb-6 sm:mb-10 max-w-2xl mx-auto px-4 sm:px-0">
+                <p className="dark:text-white/70 text-foreground/70 text-base sm:text-lg mb-6 sm:mb-10 max-w-2xl mx-auto px-4 sm:px-0">
                   Join thousands of car enthusiasts buying and selling through our platform. Create
                   your account today and start bidding or listing.
                 </p>
@@ -572,7 +572,7 @@ export function HowItWorksPage() {
                   <Link to={ROUTES.BROWSE}>
                     <Button
                       variant="outline"
-                      className="border-white/20 text-white hover:bg-white/10 hover:border-white/30 px-10 py-4 rounded-xl uppercase tracking-wider text-base"
+                      className="dark:border-white/20 border-black/20 dark:text-white text-foreground dark:hover:bg-white/10 hover:bg-black/10 dark:hover:border-white/30 hover:border-black/30 px-10 py-4 rounded-xl uppercase tracking-wider text-base"
                     >
                       Browse Auctions
                     </Button>

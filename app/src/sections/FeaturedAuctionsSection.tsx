@@ -121,13 +121,13 @@ export function FeaturedAuctionsSection() {
     <section
       ref={sectionRef}
       id="featured"
-      className="relative w-full min-h-screen py-12 md:py-16 lg:py-0 lg:h-screen overflow-hidden bg-charcoal flex items-center justify-center"
+      className="relative w-full min-h-screen py-12 md:py-16 lg:py-0 lg:h-screen overflow-hidden dark:bg-charcoal bg-background flex items-center justify-center"
     >
       <div className="w-full px-4 sm:px-6 lg:px-12">
         {/* Section Title */}
         <h2
           ref={titleRef}
-          className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl text-white text-center mb-8 md:mb-12 lg:mb-16 tracking-[0.02em] relative"
+          className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl dark:text-white text-foreground text-center mb-8 md:mb-12 lg:mb-16 tracking-[0.02em] relative"
         >
           <span className="block">FEATURED LIVE</span>
           <span className="block text-gradient-accent">AUCTIONS</span>

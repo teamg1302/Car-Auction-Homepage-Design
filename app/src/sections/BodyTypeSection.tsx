@@ -101,13 +101,13 @@ export function BodyTypeSection() {
   return (
     <section
       ref={sectionRef}
-      className="relative w-full min-h-screen py-12 md:py-16 lg:py-0 lg:h-screen overflow-hidden bg-charcoal flex items-center justify-center"
+      className="relative w-full min-h-screen py-12 md:py-16 lg:py-0 lg:h-screen overflow-hidden dark:bg-charcoal bg-background flex items-center justify-center"
     >
       <div className="w-full px-4 sm:px-6 lg:px-12">
         {/* Section Title */}
         <h2
           ref={titleRef}
-          className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl text-white text-center mb-8 md:mb-12 tracking-[0.02em] relative"
+          className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl dark:text-white text-foreground text-center mb-8 md:mb-12 tracking-[0.02em] relative"
         >
           <span className="block">BROWSE BY</span>
           <span className="block text-gradient-accent">BODY TYPE</span>
@@ -120,7 +120,7 @@ export function BodyTypeSection() {
             <div
               key={type.id}
               ref={(el) => { tilesRef.current[index] = el; }}
-              className="group relative aspect-[16/10] rounded-2xl overflow-hidden border border-white/[0.06] cursor-pointer hover-lift"
+              className="group relative aspect-[16/10] rounded-2xl overflow-hidden dark:border dark:border-white/[0.06] border border-black/[0.04] cursor-pointer hover-lift"
             >
               {/* Image */}
               <img
@@ -130,14 +130,14 @@ export function BodyTypeSection() {
               />
               
               {/* Overlay */}
-              <div className="absolute inset-0 bg-gradient-to-t from-charcoal via-charcoal/40 to-transparent transition-opacity duration-300 group-hover:opacity-90" />
+              <div className="absolute inset-0 dark:bg-gradient-to-t dark:from-charcoal dark:via-charcoal/40 dark:to-transparent bg-gradient-to-t from-card via-card/40 to-transparent transition-opacity duration-300 group-hover:opacity-90" />
               
               {/* Content */}
               <div className="absolute inset-0 flex flex-col items-center justify-center p-2">
-                <h3 className="font-display font-semibold text-base sm:text-xl md:text-2xl text-white mb-1">
+                <h3 className="font-display font-semibold text-base sm:text-xl md:text-2xl dark:text-white text-foreground mb-1">
                   {type.name}
                 </h3>
-                <p className="text-xs sm:text-sm text-white/50">{type.count} listings</p>
+                <p className="text-xs sm:text-sm dark:text-white/50 text-foreground/50">{type.count} listings</p>
               </div>
 
               {/* Hover Border */}

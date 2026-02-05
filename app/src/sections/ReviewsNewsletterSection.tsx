@@ -134,12 +134,12 @@ export function ReviewsNewsletterSection() {
   return (
     <section
       ref={sectionRef}
-      className="relative w-full py-20 bg-charcoal"
+      className="relative w-full py-20 dark:bg-charcoal bg-background"
     >
       <div className="w-full px-4 sm:px-6 lg:px-12 max-w-6xl mx-auto">
         {/* Reviews Section */}
         <div className="mb-12 sm:mb-16 md:mb-20">
-          <h2 className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl text-white text-center mb-8 sm:mb-12 tracking-[0.02em] relative">
+          <h2 className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl dark:text-white text-foreground text-center mb-8 sm:mb-12 tracking-[0.02em] relative">
             <span className="block">WHAT THE</span>
             <span className="block text-gradient-accent">COMMUNITY SAYS</span>
             <span className="absolute -bottom-4 left-1/2 -translate-x-1/2 w-24 h-1 bg-gradient-to-r from-transparent via-racing-red to-transparent" />
@@ -149,7 +149,7 @@ export function ReviewsNewsletterSection() {
             {reviews.map((review) => (
               <div
                 key={review.id}
-                className="bg-charcoal-light rounded-2xl p-6 border border-white/[0.06]"
+                className="dark:bg-charcoal-light bg-card rounded-2xl p-6 dark:border border-white/[0.06] border-black/[0.08]"
               >
                 {/* Rating */}
                 <div className="flex items-center gap-1 mb-4">
@@ -159,14 +159,14 @@ export function ReviewsNewsletterSection() {
                 </div>
 
                 {/* Quote */}
-                <p className="text-white/70 text-sm leading-relaxed mb-4">
+                <p className="dark:text-white/70 text-foreground/70 text-sm leading-relaxed mb-4">
                   "{review.text}"
                 </p>
 
                 {/* Author */}
                 <div className="flex items-center justify-between">
-                  <span className="text-white font-medium text-sm">{review.name}</span>
-                  <Badge variant="secondary" className="bg-white/5 text-white/50 text-xs">
+                  <span className="dark:text-white text-foreground font-medium text-sm">{review.name}</span>
+                  <Badge variant="secondary" className="dark:bg-white/5 bg-black/5 dark:text-white/50 text-foreground/50 text-xs">
                     {review.car}
                   </Badge>
                 </div>
@@ -178,12 +178,12 @@ export function ReviewsNewsletterSection() {
         {/* Newsletter Section */}
         <div
           ref={newsletterRef}
-          className="bg-charcoal-light rounded-2xl p-6 sm:p-8 md:p-12 border border-white/[0.06] text-center"
+          className="dark:bg-charcoal-light bg-card rounded-2xl p-6 sm:p-8 md:p-12 dark:border border-white/[0.06] border-black/[0.08] text-center"
         >
-          <h3 className="font-display font-bold text-xl sm:text-2xl md:text-3xl text-white mb-3">
+          <h3 className="font-display font-bold text-xl sm:text-2xl md:text-3xl dark:text-white text-foreground mb-3">
             Get the next drop in your inbox
           </h3>
-          <p className="text-white/50 text-xs sm:text-sm mb-6 sm:mb-8">
+          <p className="dark:text-white/50 text-foreground/50 text-xs sm:text-sm mb-6 sm:mb-8">
             Weekly auction picks. No spam.
           </p>
 
@@ -191,7 +191,7 @@ export function ReviewsNewsletterSection() {
             <Input
               type="email"
               placeholder="Email address"
-              className="flex-1 bg-white/5 border-white/10 text-white placeholder:text-white/40 rounded-xl focus:border-racing-red/50"
+              className="flex-1 dark:bg-white/5 bg-black/5 dark:border-white/10 border-black/10 dark:text-white text-foreground dark:placeholder:text-white/40 placeholder:text-foreground/40 rounded-xl focus:border-racing-red/50"
             />
             <Button 
               className="bg-racing-red hover:bg-racing-dark text-white font-semibold rounded-xl transition-all duration-300 hover:-translate-y-0.5 flex items-center gap-2 uppercase group/btn relative overflow-hidden"

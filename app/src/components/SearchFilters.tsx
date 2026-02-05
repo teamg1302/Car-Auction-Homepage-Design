@@ -21,24 +21,24 @@ export function SearchFiltersComponent({ filters, onFiltersChange, onSearch }: S
 
   return (
     <div className="glass-card p-6">
-      <h3 className="text-white font-display font-semibold text-lg mb-6">
+      <h3 className="dark:text-white text-foreground font-display font-semibold text-lg mb-6">
         Filter Listings
       </h3>
 
       <div className="space-y-4">
         {/* Make */}
         <div>
-          <Label className="text-white/70 mb-2 block text-sm">Make</Label>
+          <Label className="dark:text-white/70 text-foreground/70 mb-2 block text-sm">Make</Label>
           <Select
             value={filters.make || 'Any Make'}
             onValueChange={(value) => handleFilterChange('make', value)}
           >
-            <SelectTrigger className="bg-white/5 border-white/10 text-white">
+            <SelectTrigger className="dark:bg-white/5 bg-black/5 dark:border-white/10 border-black/10 dark:text-white text-foreground">
               <SelectValue />
             </SelectTrigger>
-            <SelectContent className="bg-charcoal-light border-white/10">
+            <SelectContent className="dark:bg-charcoal-light bg-card dark:border-white/10 border-black/10">
               {CAR_MAKES.map((make) => (
-                <SelectItem key={make} value={make} className="text-white">
+                <SelectItem key={make} value={make} className="dark:text-white text-foreground">
                   {make}
                 </SelectItem>
               ))}
@@ -48,18 +48,18 @@ export function SearchFiltersComponent({ filters, onFiltersChange, onSearch }: S
 
         {/* Type */}
         <div>
-          <Label className="text-white/70 mb-2 block text-sm">Body Type</Label>
+          <Label className="dark:text-white/70 text-foreground/70 mb-2 block text-sm">Body Type</Label>
           <Select
             value={filters.type || 'Any'}
             onValueChange={(value) => handleFilterChange('type', value as any)}
           >
-            <SelectTrigger className="bg-white/5 border-white/10 text-white">
+            <SelectTrigger className="dark:bg-white/5 bg-black/5 dark:border-white/10 border-black/10 dark:text-white text-foreground">
               <SelectValue placeholder="Any Type" />
             </SelectTrigger>
-            <SelectContent className="bg-charcoal-light border-white/10">
-              <SelectItem value="Any" className="text-white">Any Type</SelectItem>
+            <SelectContent className="dark:bg-charcoal-light bg-card dark:border-white/10 border-black/10">
+              <SelectItem value="Any" className="dark:text-white text-foreground">Any Type</SelectItem>
               {CAR_TYPES.map((type) => (
-                <SelectItem key={type} value={type} className="text-white">
+                <SelectItem key={type} value={type} className="dark:text-white text-foreground">
                   {type}
                 </SelectItem>
               ))}
@@ -69,7 +69,7 @@ export function SearchFiltersComponent({ filters, onFiltersChange, onSearch }: S
 
         {/* Price Range */}
         <div>
-          <Label className="text-white/70 mb-2 block text-sm">Price Range</Label>
+          <Label className="dark:text-white/70 text-foreground/70 mb-2 block text-sm">Price Range</Label>
           <Select
             value={filters.maxPrice ? `${filters.minPrice || 0}-${filters.maxPrice}` : 'Any'}
             onValueChange={(value) => {
@@ -81,16 +81,16 @@ export function SearchFiltersComponent({ filters, onFiltersChange, onSearch }: S
               }
             }}
           >
-            <SelectTrigger className="bg-white/5 border-white/10 text-white">
+            <SelectTrigger className="dark:bg-white/5 bg-black/5 dark:border-white/10 border-black/10 dark:text-white text-foreground">
               <SelectValue placeholder="Any Price" />
             </SelectTrigger>
-            <SelectContent className="bg-charcoal-light border-white/10">
-              <SelectItem value="Any" className="text-white">Any Price</SelectItem>
+            <SelectContent className="dark:bg-charcoal-light bg-card dark:border-white/10 border-black/10">
+              <SelectItem value="Any" className="dark:text-white text-foreground">Any Price</SelectItem>
               {PRICE_RANGES.slice(1).map((range) => (
                 <SelectItem
                   key={range.label}
                   value={`${range.min}-${range.max === Infinity ? 'inf' : range.max}`}
-                  className="text-white"
+                  className="dark:text-white text-foreground"
                 >
                   {range.label}
                 </SelectItem>
@@ -101,18 +101,18 @@ export function SearchFiltersComponent({ filters, onFiltersChange, onSearch }: S
 
         {/* Transmission */}
         <div>
-          <Label className="text-white/70 mb-2 block text-sm">Transmission</Label>
+          <Label className="dark:text-white/70 text-foreground/70 mb-2 block text-sm">Transmission</Label>
           <Select
             value={filters.transmission || 'Any'}
             onValueChange={(value) => handleFilterChange('transmission', value as any)}
           >
-            <SelectTrigger className="bg-white/5 border-white/10 text-white">
+            <SelectTrigger className="dark:bg-white/5 bg-black/5 dark:border-white/10 border-black/10 dark:text-white text-foreground">
               <SelectValue placeholder="Any Transmission" />
             </SelectTrigger>
-            <SelectContent className="bg-charcoal-light border-white/10">
-              <SelectItem value="Any" className="text-white">Any Transmission</SelectItem>
+            <SelectContent className="dark:bg-charcoal-light bg-card dark:border-white/10 border-black/10">
+              <SelectItem value="Any" className="dark:text-white text-foreground">Any Transmission</SelectItem>
               {TRANSMISSION_TYPES.map((type) => (
-                <SelectItem key={type} value={type} className="text-white">
+                <SelectItem key={type} value={type} className="dark:text-white text-foreground">
                   {type}
                 </SelectItem>
               ))}
@@ -122,18 +122,18 @@ export function SearchFiltersComponent({ filters, onFiltersChange, onSearch }: S
 
         {/* Fuel Type */}
         <div>
-          <Label className="text-white/70 mb-2 block text-sm">Fuel Type</Label>
+          <Label className="dark:text-white/70 text-foreground/70 mb-2 block text-sm">Fuel Type</Label>
           <Select
             value={filters.fuel || 'Any'}
             onValueChange={(value) => handleFilterChange('fuel', value as any)}
           >
-            <SelectTrigger className="bg-white/5 border-white/10 text-white">
+            <SelectTrigger className="dark:bg-white/5 bg-black/5 dark:border-white/10 border-black/10 dark:text-white text-foreground">
               <SelectValue placeholder="Any Fuel Type" />
             </SelectTrigger>
-            <SelectContent className="bg-charcoal-light border-white/10">
-              <SelectItem value="Any" className="text-white">Any Fuel Type</SelectItem>
+            <SelectContent className="dark:bg-charcoal-light bg-card dark:border-white/10 border-black/10">
+              <SelectItem value="Any" className="dark:text-white text-foreground">Any Fuel Type</SelectItem>
               {FUEL_TYPES.map((type) => (
-                <SelectItem key={type} value={type} className="text-white">
+                <SelectItem key={type} value={type} className="dark:text-white text-foreground">
                   {type}
                 </SelectItem>
               ))}

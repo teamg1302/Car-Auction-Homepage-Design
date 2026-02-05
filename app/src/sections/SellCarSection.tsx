@@ -75,25 +75,25 @@ export function SellCarSection() {
     <section
       ref={sectionRef}
       id="sell"
-      className="relative w-full min-h-screen py-12 md:py-16 lg:py-0 lg:h-screen overflow-hidden bg-charcoal flex items-center justify-center"
+      className="relative w-full min-h-screen py-12 md:py-16 lg:py-0 lg:h-screen overflow-hidden dark:bg-charcoal bg-background flex items-center justify-center"
     >
       <div className="w-full px-4 sm:px-6 lg:px-12">
         {/* Sell Card */}
         <div
           ref={cardRef}
-          className="relative max-w-6xl mx-auto rounded-2xl overflow-hidden border border-white/[0.06] card-shadow"
+          className="relative max-w-6xl mx-auto rounded-2xl overflow-hidden dark:border border-white/[0.06] border-black/[0.08] card-shadow"
         >
           <div className="grid grid-cols-1 lg:grid-cols-5 min-h-[400px] sm:min-h-[500px]">
             {/* Content Panel (45%) */}
-            <div className="lg:col-span-2 bg-charcoal-light/90 backdrop-blur-sm p-4 sm:p-6 lg:p-10 flex flex-col justify-center order-2 lg:order-1">
+            <div className="lg:col-span-2 dark:bg-charcoal-light/90 bg-card/90 backdrop-blur-sm p-4 sm:p-6 lg:p-10 flex flex-col justify-center order-2 lg:order-1">
               <div ref={contentRef}>
                 {/* Title */}
-                <h2 className="font-display font-bold text-2xl lg:text-3xl text-white mb-4">
+                <h2 className="font-display font-bold text-2xl lg:text-3xl dark:text-white text-foreground mb-4">
                   Sell your car to real enthusiasts
                 </h2>
 
                 {/* Description */}
-                <p className="text-white/70 text-sm leading-relaxed mb-6">
+                <p className="dark:text-white/70 text-foreground/70 text-sm leading-relaxed mb-6">
                   List in minutes, set your reserve, and let the market decide. 
                   No haggling, no tire kickers—just serious buyers who appreciate 
                   what you have.
@@ -106,7 +106,7 @@ export function SellCarSection() {
                       <div className="w-5 h-5 rounded-full bg-racing-red/20 flex items-center justify-center flex-shrink-0">
                         <Check className="w-3 h-3 text-racing-red" />
                       </div>
-                      <span className="text-sm text-white/80">{benefit}</span>
+                      <span className="text-sm dark:text-white/80 text-foreground/80">{benefit}</span>
                     </div>
                   ))}
                 </div>
@@ -149,7 +149,7 @@ export function SellCarSection() {
                   <Link to={ROUTES.HOW_IT_WORKS}>
                     <Button
                       variant="ghost"
-                      className="text-white/60 hover:text-white hover:bg-white/5 group/btn"
+                      className="dark:text-white/60 text-foreground/60 dark:hover:text-white hover:text-foreground dark:hover:bg-white/5 hover:bg-black/5 group/btn"
                       onMouseEnter={(e) => {
                         gsap.to(e.currentTarget, {
                           scale: 1.02,
@@ -179,8 +179,8 @@ export function SellCarSection() {
                 alt="Sell your car"
                 className="w-full h-full object-cover"
               />
-              <div className="absolute inset-0 bg-gradient-to-l from-transparent via-transparent to-charcoal-light/90 hidden lg:block" />
-              <div className="absolute inset-0 bg-gradient-to-t from-charcoal-light via-transparent to-transparent lg:hidden" />
+              <div className="absolute inset-0 dark:bg-gradient-to-l dark:from-transparent dark:via-transparent dark:to-charcoal-light/90 bg-gradient-to-l from-transparent via-transparent to-card/90 hidden lg:block" />
+              <div className="absolute inset-0 dark:bg-gradient-to-t dark:from-charcoal-light dark:via-transparent dark:to-transparent bg-gradient-to-t from-card via-transparent to-transparent lg:hidden" />
             </div>
           </div>
         </div>

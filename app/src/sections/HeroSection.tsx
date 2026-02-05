@@ -136,11 +136,11 @@ export function HeroSection() {
           alt="Luxury sports car"
           className="w-full h-full object-cover scale-105"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-charcoal/40 via-charcoal/60 to-charcoal/85" />
+        <div className="absolute inset-0 dark:bg-gradient-to-b dark:from-charcoal/40 dark:via-charcoal/60 dark:to-charcoal/85 bg-gradient-to-b from-white/20 via-white/30 to-white/50" />
         {/* Atmospheric overlay */}
-        <div className="absolute inset-0 mesh-gradient opacity-30" />
+        <div className="absolute inset-0 mesh-gradient dark:opacity-30 opacity-20" />
         {/* Vignette effect */}
-        <div className="absolute inset-0 bg-radial-gradient from-transparent via-transparent to-charcoal/50" />
+        <div className="absolute inset-0 dark:bg-radial-gradient dark:from-transparent dark:via-transparent dark:to-charcoal/50 bg-radial-gradient from-transparent via-transparent to-white/30" />
       </div>
 
       {/* Content */}
@@ -149,10 +149,10 @@ export function HeroSection() {
           {/* Headline */}
           <h1
             ref={headlineRef}
-            className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl 2xl:text-9xl text-white tracking-[0.02em] leading-[0.9] mb-6 sm:mb-8 relative"
+            className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl 2xl:text-9xl dark:text-white text-foreground tracking-[0.02em] leading-[0.9] mb-6 sm:mb-8 relative"
             style={{ opacity: 0 }}
           >
-            <span className="block">BID ON CARS</span>
+            <span className="block text-white">BID ON CARS</span>
             <span className="block text-gradient-accent relative">
               WORTH DRIVING
               <span className="absolute -bottom-2 left-0 w-full h-1 bg-gradient-to-r from-racing-red via-racing-red/50 to-transparent opacity-60" />
@@ -162,11 +162,11 @@ export function HeroSection() {
           {/* Subheadline */}
           <p
             ref={subheadlineRef}
-            className="text-sm sm:text-base md:text-lg lg:text-xl text-white/80 max-w-2xl mx-auto mb-8 sm:mb-12 md:mb-16 px-4 sm:px-0 font-light tracking-wide"
+            className="text-sm sm:text-base md:text-lg lg:text-xl dark:text-white/80 text-foreground/80 max-w-2xl mx-auto mb-8 sm:mb-12 md:mb-16 px-4 sm:px-0 font-light tracking-wide"
             style={{ opacity: 0 }}
           >
-            <span className="font-semibold text-white">Live auctions.</span> Verified sellers.{' '}
-            <span className="font-semibold text-white">Real enthusiasts.</span>
+            <span className="font-semibold dark:text-white text-foreground">Live auctions.</span> Verified sellers.{' '}
+            <span className="font-semibold dark:text-white text-foreground">Real enthusiasts.</span>
           </p>
 
           {/* Search Card */}
@@ -176,28 +176,28 @@ export function HeroSection() {
             style={{ opacity: 0 }}
           >
             {/* Background mesh gradient */}
-            <div className="absolute inset-0 mesh-gradient opacity-50" />
+            <div className="absolute inset-0 mesh-gradient dark:opacity-50 opacity-30" />
             
             {/* Decorative corner accent */}
             <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-racing-red/20 to-transparent blur-3xl" />
             
-            <h3 className="text-left text-white font-display text-xl sm:text-2xl mb-6 sm:mb-8 tracking-wider relative z-10">
+            <h3 className="text-left dark:text-white text-foreground font-display text-xl sm:text-2xl mb-6 sm:mb-8 tracking-wider relative z-10">
               FIND YOUR NEXT CAR
             </h3>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5 relative z-10">
               {/* Make Dropdown */}
               <div className="relative">
-                <label className="block text-xs text-white/60 uppercase tracking-[0.1em] mb-3 font-semibold">
+                <label className="block text-xs dark:text-white/60 text-foreground/60 uppercase tracking-[0.1em] mb-3 font-semibold">
                   Make
                 </label>
                 <Select value={selectedMake} onValueChange={setSelectedMake}>
-                  <SelectTrigger className="w-full bg-white/[0.08] border-white/15 text-white h-12 px-5 py-3.5">
+                  <SelectTrigger className="w-full dark:bg-white/[0.08] bg-black/[0.08] dark:border-white/15 border-black/15 dark:text-white text-foreground h-12 px-5 py-3.5">
                     <SelectValue />
                   </SelectTrigger>
-                  <SelectContent className="bg-charcoal-light border-white/10">
+                  <SelectContent className="dark:bg-charcoal-light bg-card dark:border-white/10 border-black/10">
                     {makes.map((make) => (
-                      <SelectItem key={make} value={make} className="text-white">
+                      <SelectItem key={make} value={make} className="dark:text-white text-foreground">
                         {make}
                       </SelectItem>
                     ))}
@@ -207,16 +207,16 @@ export function HeroSection() {
 
               {/* Model Dropdown */}
               <div className="relative">
-                <label className="block text-xs text-white/60 uppercase tracking-[0.1em] mb-3 font-semibold">
+                <label className="block text-xs dark:text-white/60 text-foreground/60 uppercase tracking-[0.1em] mb-3 font-semibold">
                   Model
                 </label>
                 <Select value={selectedModel} onValueChange={setSelectedModel}>
-                  <SelectTrigger className="w-full bg-white/[0.08] border-white/15 text-white h-12 px-5 py-3.5">
+                  <SelectTrigger className="w-full dark:bg-white/[0.08] bg-black/[0.08] dark:border-white/15 border-black/15 dark:text-white text-foreground h-12 px-5 py-3.5">
                     <SelectValue />
                   </SelectTrigger>
-                  <SelectContent className="bg-charcoal-light border-white/10">
+                  <SelectContent className="dark:bg-charcoal-light bg-card dark:border-white/10 border-black/10">
                     {models.map((model) => (
-                      <SelectItem key={model} value={model} className="text-white">
+                      <SelectItem key={model} value={model} className="dark:text-white text-foreground">
                         {model}
                       </SelectItem>
                     ))}
@@ -226,16 +226,16 @@ export function HeroSection() {
 
               {/* Price Range Dropdown */}
               <div className="relative">
-                <label className="block text-xs text-white/60 uppercase tracking-[0.1em] mb-3 font-semibold">
+                <label className="block text-xs dark:text-white/60 text-foreground/60 uppercase tracking-[0.1em] mb-3 font-semibold">
                   Price Range
                 </label>
                 <Select value={selectedPriceRange} onValueChange={setSelectedPriceRange}>
-                  <SelectTrigger className="w-full bg-white/[0.08] border-white/15 text-white h-12 px-5 py-3.5">
+                  <SelectTrigger className="w-full dark:bg-white/[0.08] bg-black/[0.08] dark:border-white/15 border-black/15 dark:text-white text-foreground h-12 px-5 py-3.5">
                     <SelectValue />
                   </SelectTrigger>
-                  <SelectContent className="bg-charcoal-light border-white/10">
+                  <SelectContent className="dark:bg-charcoal-light bg-card dark:border-white/10 border-black/10">
                     {priceRanges.map((range) => (
-                      <SelectItem key={range} value={range} className="text-white">
+                      <SelectItem key={range} value={range} className="dark:text-white text-foreground">
                         {range}
                       </SelectItem>
                     ))}
@@ -258,21 +258,21 @@ export function HeroSection() {
 
           {/* Trust Badges */}
           <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-6 md:gap-8 mt-8 sm:mt-10 md:mt-12 px-4">
-            <div className="flex items-center gap-2 sm:gap-3 text-white/70 text-xs sm:text-sm font-medium group">
-              <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center group-hover:bg-racing-red/20 group-hover:border-racing-red/50 transition-all duration-300">
-                <Shield className="w-4 h-4 sm:w-5 sm:h-5 text-white/80 group-hover:text-racing-red transition-colors" />
+            <div className="flex items-center gap-2 sm:gap-3 dark:text-white/70 text-foreground/70 text-xs sm:text-sm font-medium group">
+              <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-lg dark:bg-white/5 bg-black/5 dark:border border-white/10 border-black/10 flex items-center justify-center group-hover:bg-racing-red/20 group-hover:border-racing-red/50 transition-all duration-300">
+                <Shield className="w-4 h-4 sm:w-5 sm:h-5 dark:text-white/80 text-foreground/80 group-hover:text-racing-red transition-colors" />
               </div>
               <span className="tracking-wide">Free to bid</span>
             </div>
-            <div className="flex items-center gap-2 sm:gap-3 text-white/70 text-xs sm:text-sm font-medium group">
-              <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center group-hover:bg-racing-red/20 group-hover:border-racing-red/50 transition-all duration-300">
-                <CreditCard className="w-4 h-4 sm:w-5 sm:h-5 text-white/80 group-hover:text-racing-red transition-colors" />
+            <div className="flex items-center gap-2 sm:gap-3 dark:text-white/70 text-foreground/70 text-xs sm:text-sm font-medium group">
+              <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-lg dark:bg-white/5 bg-black/5 dark:border border-white/10 border-black/10 flex items-center justify-center group-hover:bg-racing-red/20 group-hover:border-racing-red/50 transition-all duration-300">
+                <CreditCard className="w-4 h-4 sm:w-5 sm:h-5 dark:text-white/80 text-foreground/80 group-hover:text-racing-red transition-colors" />
               </div>
               <span className="tracking-wide">Secure checkout</span>
             </div>
-            <div className="flex items-center gap-2 sm:gap-3 text-white/70 text-xs sm:text-sm font-medium group">
-              <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center group-hover:bg-racing-red/20 group-hover:border-racing-red/50 transition-all duration-300">
-                <Truck className="w-4 h-4 sm:w-5 sm:h-5 text-white/80 group-hover:text-racing-red transition-colors" />
+            <div className="flex items-center gap-2 sm:gap-3 dark:text-white/70 text-foreground/70 text-xs sm:text-sm font-medium group">
+              <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-lg dark:bg-white/5 bg-black/5 dark:border border-white/10 border-black/10 flex items-center justify-center group-hover:bg-racing-red/20 group-hover:border-racing-red/50 transition-all duration-300">
+                <Truck className="w-4 h-4 sm:w-5 sm:h-5 dark:text-white/80 text-foreground/80 group-hover:text-racing-red transition-colors" />
               </div>
               <span className="tracking-wide">Nationwide shipping</span>
             </div>

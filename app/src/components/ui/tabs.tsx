@@ -26,7 +26,7 @@ function TabsList({
     <TabsPrimitive.List
       data-slot="tabs-list"
       className={cn(
-        "bg-white/5 border border-white/10 backdrop-blur-sm inline-flex h-10 w-fit items-center justify-center rounded-xl p-1",
+        "dark:bg-white/5 bg-black/5 dark:border border-white/10 border-black/10 backdrop-blur-sm inline-flex h-10 w-fit items-center justify-center rounded-xl p-1",
         className
       )}
       {...props}
@@ -42,7 +42,7 @@ function TabsTrigger({
     <TabsPrimitive.Trigger
       data-slot="tabs-trigger"
       className={cn(
-        "data-[state=active]:bg-gradient-to-r data-[state=active]:from-racing-red data-[state=active]:to-racing-dark data-[state=active]:text-white focus-visible:border-racing-red/70 focus-visible:ring-racing-red/20 focus-visible:ring-[3px] text-white/70 inline-flex h-full flex-1 items-center justify-center gap-2 rounded-lg border border-transparent px-4 py-2 text-sm font-semibold uppercase tracking-wider whitespace-nowrap transition-all duration-300 disabled:pointer-events-none disabled:opacity-50 data-[state=active]:shadow-lg [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
+        "data-[state=active]:bg-gradient-to-r data-[state=active]:from-racing-red data-[state=active]:to-racing-dark data-[state=active]:text-white focus-visible:border-racing-red/70 focus-visible:ring-racing-red/20 focus-visible:ring-[3px] dark:text-white/70 text-foreground/70 inline-flex h-full flex-1 items-center justify-center gap-2 rounded-lg border border-transparent px-4 py-2 text-sm font-semibold uppercase tracking-wider whitespace-nowrap transition-all duration-300 disabled:pointer-events-none disabled:opacity-50 data-[state=active]:shadow-lg [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
         className
       )}
       {...props}

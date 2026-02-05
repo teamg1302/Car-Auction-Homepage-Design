@@ -13,11 +13,11 @@ const buttonVariants = cva(
         destructive:
           "bg-destructive text-white hover:bg-destructive/90 focus-visible:ring-destructive/20 dark:focus-visible:ring-destructive/40 dark:bg-destructive/60 hover:-translate-y-1 hover:shadow-[0_10px_40px_rgba(220,38,38,0.4)]",
         outline:
-          "border border-white/15 bg-white/[0.08] backdrop-blur-sm text-foreground shadow-xs hover:bg-white/[0.12] hover:border-white/25 dark:bg-input/30 dark:border-input dark:hover:bg-input/50 hover:-translate-y-0.5",
+          "dark:border border-white/15 border-black/15 dark:bg-white/[0.08] bg-black/[0.08] backdrop-blur-sm text-foreground shadow-xs dark:hover:bg-white/[0.12] hover:bg-black/[0.12] dark:hover:border-white/25 hover:border-black/25 dark:bg-input/30 dark:border-input dark:hover:bg-input/50 hover:-translate-y-0.5",
         secondary:
-          "bg-secondary text-secondary-foreground hover:bg-secondary/80 border border-white/10 hover:-translate-y-0.5",
+          "bg-secondary text-secondary-foreground hover:bg-secondary/80 dark:border border-white/10 border-black/10 hover:-translate-y-0.5",
         ghost:
-          "hover:bg-white/5 hover:text-foreground dark:hover:bg-white/10",
+          "dark:hover:bg-white/5 hover:bg-black/5 hover:text-foreground dark:hover:bg-white/10",
         link: "text-racing-red underline-offset-4 hover:underline hover:text-racing-dark",
       },
       size: {

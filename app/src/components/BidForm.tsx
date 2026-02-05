@@ -47,20 +47,20 @@ export function BidForm({ auction, onBidSubmit, isLoading = false }: BidFormProp
 
   return (
     <div className="glass-card p-6">
-      <h3 className="text-white font-display font-semibold text-lg mb-4">
+      <h3 className="dark:text-white text-foreground font-display font-semibold text-lg mb-4">
         Place Your Bid
       </h3>
 
       <div className="mb-4">
         <div className="flex items-center justify-between mb-2">
-          <span className="text-sm text-white/50">Current bid</span>
+          <span className="text-sm dark:text-white/50 text-foreground/50">Current bid</span>
           <span className="text-lg font-bold text-racing-red">
             {formatPrice(auction.currentBid)}
           </span>
         </div>
         <div className="flex items-center justify-between">
-          <span className="text-sm text-white/50">Minimum bid</span>
-          <span className="text-sm font-semibold text-white">
+          <span className="text-sm dark:text-white/50 text-foreground/50">Minimum bid</span>
+          <span className="text-sm font-semibold dark:text-white text-foreground">
             {formatPrice(minBid)}
           </span>
         </div>
@@ -68,7 +68,7 @@ export function BidForm({ auction, onBidSubmit, isLoading = false }: BidFormProp
 
       <form onSubmit={handleSubmit} className="space-y-4">
         <div>
-          <Label htmlFor="bidAmount" className="text-white/70 mb-2 block">
+          <Label htmlFor="bidAmount" className="dark:text-white/70 text-foreground/70 mb-2 block">
             Your bid amount
           </Label>
           <Input
@@ -82,10 +82,10 @@ export function BidForm({ auction, onBidSubmit, isLoading = false }: BidFormProp
             placeholder={minBid.toString()}
             min={minBid}
             step="100"
-            className="bg-white/5 border-white/10 text-white"
+            className="dark:bg-white/5 bg-black/5 dark:border-white/10 border-black/10 dark:text-white text-foreground"
           />
           {error && (
-            <p className="text-sm text-red-400 mt-1">{error}</p>
+            <p className="text-sm text-destructive mt-1">{error}</p>
           )}
         </div>
 
@@ -95,7 +95,7 @@ export function BidForm({ auction, onBidSubmit, isLoading = false }: BidFormProp
             variant="outline"
             size="sm"
             onClick={() => handleQuickBid(100)}
-            className="flex-1 min-w-[80px] border-white/10 text-white/70 hover:text-white"
+            className="flex-1 min-w-[80px] dark:border-white/10 border-black/10 dark:text-white/70 text-foreground/70 dark:hover:text-white hover:text-foreground"
           >
             +$100
           </Button>
@@ -104,7 +104,7 @@ export function BidForm({ auction, onBidSubmit, isLoading = false }: BidFormProp
             variant="outline"
             size="sm"
             onClick={() => handleQuickBid(500)}
-            className="flex-1 min-w-[80px] border-white/10 text-white/70 hover:text-white"
+            className="flex-1 min-w-[80px] dark:border-white/10 border-black/10 dark:text-white/70 text-foreground/70 dark:hover:text-white hover:text-foreground"
           >
             +$500
           </Button>
@@ -113,7 +113,7 @@ export function BidForm({ auction, onBidSubmit, isLoading = false }: BidFormProp
             variant="outline"
             size="sm"
             onClick={() => handleQuickBid(1000)}
-            className="flex-1 min-w-[80px] border-white/10 text-white/70 hover:text-white"
+            className="flex-1 min-w-[80px] dark:border-white/10 border-black/10 dark:text-white/70 text-foreground/70 dark:hover:text-white hover:text-foreground"
           >
             +$1,000
           </Button>
@@ -122,7 +122,7 @@ export function BidForm({ auction, onBidSubmit, isLoading = false }: BidFormProp
             variant="outline"
             size="sm"
             onClick={() => handleQuickBid(5000)}
-            className="flex-1 min-w-[80px] border-white/10 text-white/70 hover:text-white"
+            className="flex-1 min-w-[80px] dark:border-white/10 border-black/10 dark:text-white/70 text-foreground/70 dark:hover:text-white hover:text-foreground"
           >
             +$5,000
           </Button>

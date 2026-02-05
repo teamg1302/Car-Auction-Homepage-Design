@@ -29,6 +29,30 @@
     --glow-red: 0 72% 51%;
     --glow-orange: 25 95% 53%;
   }
+
+  .light {
+    --background: 0 0% 100%;
+    --foreground: 220 14% 3%;
+    --card: 0 0% 100%;
+    --card-foreground: 220 14% 3%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 14% 3%;
+    --primary: 0 72% 51%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 220 10% 96%;
+    --secondary-foreground: 220 14% 3%;
+    --muted: 220 10% 96%;
+    --muted-foreground: 220 5% 45%;
+    --accent: 0 72% 51%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 220 10% 90%;
+    --input: 220 10% 90%;
+    --ring: 0 72% 51%;
+    --glow-red: 0 72% 51%;
+    --glow-orange: 25 95% 53%;
+  }
 }
 
 @layer base {
@@ -60,6 +84,10 @@
   .text-gradient {
     @apply bg-clip-text text-transparent bg-gradient-to-r from-white via-white/90 to-white/70;
   }
+
+  .light .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-foreground via-foreground/90 to-foreground/70;
+  }
   
   .text-gradient-accent {
     @apply bg-clip-text text-transparent bg-gradient-to-r from-[#D92B2B] via-[#FF4444] to-[#FF6B6B];
@@ -71,6 +99,13 @@
       0 8px 32px rgba(0, 0, 0, 0.4),
       inset 0 1px 0 rgba(255, 255, 255, 0.1);
   }
+
+  .light .glass-card {
+    @apply bg-[rgba(255,255,255,0.85)] backdrop-blur-2xl border border-black/[0.08] rounded-[20px];
+    box-shadow: 
+      0 8px 32px rgba(0, 0, 0, 0.1),
+      inset 0 1px 0 rgba(0, 0, 0, 0.05);
+  }
   
   .glass-card-strong {
     @apply bg-[rgba(11,13,16,0.95)] backdrop-blur-2xl border border-white/[0.15] rounded-[20px];
@@ -78,6 +113,14 @@
       0 20px 60px rgba(0, 0, 0, 0.5),
       inset 0 1px 0 rgba(255, 255, 255, 0.15),
       0 0 0 1px rgba(255, 255, 255, 0.05);
+  }
+
+  .light .glass-card-strong {
+    @apply bg-[rgba(255,255,255,0.95)] backdrop-blur-2xl border border-black/[0.1] rounded-[20px];
+    box-shadow: 
+      0 20px 60px rgba(0, 0, 0, 0.15),
+      inset 0 1px 0 rgba(0, 0, 0, 0.08),
+      0 0 0 1px rgba(0, 0, 0, 0.03);
   }
   
   .grain-overlay {
@@ -100,11 +143,25 @@
       radial-gradient(at 100% 100%, rgba(217, 43, 43, 0.08) 0px, transparent 50%),
       radial-gradient(at 0% 100%, rgba(255, 68, 68, 0.12) 0px, transparent 50%);
   }
+
+  .light .mesh-gradient {
+    background: 
+      radial-gradient(at 0% 0%, rgba(217, 43, 43, 0.08) 0px, transparent 50%),
+      radial-gradient(at 100% 0%, rgba(255, 68, 68, 0.05) 0px, transparent 50%),
+      radial-gradient(at 100% 100%, rgba(217, 43, 43, 0.06) 0px, transparent 50%),
+      radial-gradient(at 0% 100%, rgba(255, 68, 68, 0.07) 0px, transparent 50%);
+  }
   
   .card-shadow {
     box-shadow: 
       0 20px 60px rgba(0, 0, 0, 0.5),
       0 0 0 1px rgba(255, 255, 255, 0.05);
+  }
+
+  .light .card-shadow {
+    box-shadow: 
+      0 20px 60px rgba(0, 0, 0, 0.15),
+      0 0 0 1px rgba(0, 0, 0, 0.05);
   }
   
   .card-shadow-glow {
@@ -112,6 +169,13 @@
       0 20px 60px rgba(0, 0, 0, 0.5),
       0 0 0 1px rgba(255, 255, 255, 0.05),
       0 0 40px rgba(217, 43, 43, 0.2);
+  }
+
+  .light .card-shadow-glow {
+    box-shadow: 
+      0 20px 60px rgba(0, 0, 0, 0.15),
+      0 0 0 1px rgba(0, 0, 0, 0.05),
+      0 0 40px rgba(217, 43, 43, 0.15);
   }
   
   .hover-lift {
@@ -125,6 +189,13 @@
       0 30px 80px rgba(0, 0, 0, 0.6),
       0 0 0 1px rgba(255, 255, 255, 0.1),
       0 0 60px rgba(217, 43, 43, 0.3);
+  }
+
+  .light .hover-lift:hover {
+    box-shadow: 
+      0 30px 80px rgba(0, 0, 0, 0.2),
+      0 0 0 1px rgba(0, 0, 0, 0.08),
+      0 0 60px rgba(217, 43, 43, 0.2);
   }
   
   .text-balance {
@@ -169,5 +240,15 @@
 /* Selection */
 ::selection {
   background: hsl(var(--primary) / 0.3);
-  color: white;
+  color: hsl(var(--primary-foreground));
+}
+
+/* Car image glow effect on hover */
+.car-image-glow {
+  filter: drop-shadow(0 0 0 rgba(217, 43, 43, 0));
+  transition: transform 700ms ease-out, filter 500ms ease-out, brightness 500ms ease-out, contrast 500ms ease-out;
+}
+
+.group:hover .car-image-glow {
+  filter: drop-shadow(0 0 20px rgba(217, 43, 43, 0.4)) drop-shadow(0 0 40px rgba(217, 43, 43, 0.2));
 }

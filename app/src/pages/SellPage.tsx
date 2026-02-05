@@ -276,8 +276,8 @@ export function SellPage() {
         return (
           <div className="space-y-6">
             <div>
-              <h3 className="font-display text-xl sm:text-2xl text-white mb-4 sm:mb-6">Basic Information</h3>
-              <p className="text-white/60 text-xs sm:text-sm mb-4 sm:mb-6">
+              <h3 className="font-display text-xl sm:text-2xl dark:text-white text-foreground mb-4 sm:mb-6">Basic Information</h3>
+              <p className="dark:text-white/60 text-foreground/60 text-xs sm:text-sm mb-4 sm:mb-6">
                 Tell us about your vehicle's basic details.
               </p>
             </div>
@@ -293,9 +293,9 @@ export function SellPage() {
                   placeholder="2020"
                   min="1900"
                   max={new Date().getFullYear() + 1}
-                  className={errors.year ? 'border-red-500' : ''}
+                  className={errors.year ? 'border-destructive' : ''}
                 />
-                {errors.year && <p className="text-red-400 text-xs mt-1">{errors.year}</p>}
+                {errors.year && <p className="text-destructive text-xs mt-1">{errors.year}</p>}
               </div>
 
               <div>
@@ -304,7 +304,7 @@ export function SellPage() {
                   value={formData.make}
                   onValueChange={(value) => handleInputChange('make', value)}
                 >
-                  <SelectTrigger id="make" className={errors.make ? 'border-red-500' : ''}>
+                  <SelectTrigger id="make" className={errors.make ? 'border-destructive' : ''}>
                     <SelectValue placeholder="Select make" />
                   </SelectTrigger>
                   <SelectContent>
@@ -315,7 +315,7 @@ export function SellPage() {
                     ))}
                   </SelectContent>
                 </Select>
-                {errors.make && <p className="text-red-400 text-xs mt-1">{errors.make}</p>}
+                {errors.make && <p className="text-destructive text-xs mt-1">{errors.make}</p>}
               </div>
 
               <div>
@@ -325,9 +325,9 @@ export function SellPage() {
                   value={formData.model}
                   onChange={(e) => handleInputChange('model', e.target.value)}
                   placeholder="911"
-                  className={errors.model ? 'border-red-500' : ''}
+                  className={errors.model ? 'border-destructive' : ''}
                 />
-                {errors.model && <p className="text-red-400 text-xs mt-1">{errors.model}</p>}
+                {errors.model && <p className="text-destructive text-xs mt-1">{errors.model}</p>}
               </div>
 
               <div>
@@ -346,7 +346,7 @@ export function SellPage() {
                   value={formData.type}
                   onValueChange={(value) => handleInputChange('type', value as CarType)}
                 >
-                  <SelectTrigger id="type" className={errors.type ? 'border-red-500' : ''}>
+                  <SelectTrigger id="type" className={errors.type ? 'border-destructive' : ''}>
                     <SelectValue placeholder="Select body type" />
                   </SelectTrigger>
                   <SelectContent>
@@ -357,7 +357,7 @@ export function SellPage() {
                     ))}
                   </SelectContent>
                 </Select>
-                {errors.type && <p className="text-red-400 text-xs mt-1">{errors.type}</p>}
+                {errors.type && <p className="text-destructive text-xs mt-1">{errors.type}</p>}
               </div>
 
               <div>
@@ -367,9 +367,9 @@ export function SellPage() {
                   value={formData.color}
                   onChange={(e) => handleInputChange('color', e.target.value)}
                   placeholder="Black"
-                  className={errors.color ? 'border-red-500' : ''}
+                  className={errors.color ? 'border-destructive' : ''}
                 />
-                {errors.color && <p className="text-red-400 text-xs mt-1">{errors.color}</p>}
+                {errors.color && <p className="text-destructive text-xs mt-1">{errors.color}</p>}
               </div>
             </div>
           </div>
@@ -379,8 +379,8 @@ export function SellPage() {
         return (
           <div className="space-y-6">
             <div>
-              <h3 className="font-display text-2xl text-white mb-6">Vehicle Details</h3>
-              <p className="text-white/60 text-sm mb-6">
+              <h3 className="font-display text-2xl dark:text-white text-foreground mb-6">Vehicle Details</h3>
+              <p className="dark:text-white/60 text-foreground/60 text-sm mb-6">
                 Provide specific details about your vehicle's condition and specifications.
               </p>
             </div>
@@ -395,9 +395,9 @@ export function SellPage() {
                   onChange={(e) => handleInputChange('mileage', e.target.value)}
                   placeholder="50000"
                   min="0"
-                  className={errors.mileage ? 'border-red-500' : ''}
+                  className={errors.mileage ? 'border-destructive' : ''}
                 />
-                {errors.mileage && <p className="text-red-400 text-xs mt-1">{errors.mileage}</p>}
+                {errors.mileage && <p className="text-destructive text-xs mt-1">{errors.mileage}</p>}
               </div>
 
               <div>
@@ -406,7 +406,7 @@ export function SellPage() {
                   value={formData.transmission}
                   onValueChange={(value) => handleInputChange('transmission', value as TransmissionType)}
                 >
-                  <SelectTrigger id="transmission" className={errors.transmission ? 'border-red-500' : ''}>
+                  <SelectTrigger id="transmission" className={errors.transmission ? 'border-destructive' : ''}>
                     <SelectValue placeholder="Select transmission" />
                   </SelectTrigger>
                   <SelectContent>
@@ -417,7 +417,7 @@ export function SellPage() {
                     ))}
                   </SelectContent>
                 </Select>
-                {errors.transmission && <p className="text-red-400 text-xs mt-1">{errors.transmission}</p>}
+                {errors.transmission && <p className="text-destructive text-xs mt-1">{errors.transmission}</p>}
               </div>
 
               <div>
@@ -426,7 +426,7 @@ export function SellPage() {
                   value={formData.fuel}
                   onValueChange={(value) => handleInputChange('fuel', value as FuelType)}
                 >
-                  <SelectTrigger id="fuel" className={errors.fuel ? 'border-red-500' : ''}>
+                  <SelectTrigger id="fuel" className={errors.fuel ? 'border-destructive' : ''}>
                     <SelectValue placeholder="Select fuel type" />
                   </SelectTrigger>
                   <SelectContent>
@@ -437,7 +437,7 @@ export function SellPage() {
                     ))}
                   </SelectContent>
                 </Select>
-                {errors.fuel && <p className="text-red-400 text-xs mt-1">{errors.fuel}</p>}
+                {errors.fuel && <p className="text-destructive text-xs mt-1">{errors.fuel}</p>}
               </div>
 
               <div>
@@ -446,7 +446,7 @@ export function SellPage() {
                   value={formData.condition}
                   onValueChange={(value) => handleInputChange('condition', value as ConditionType)}
                 >
-                  <SelectTrigger id="condition" className={errors.condition ? 'border-red-500' : ''}>
+                  <SelectTrigger id="condition" className={errors.condition ? 'border-destructive' : ''}>
                     <SelectValue placeholder="Select condition" />
                   </SelectTrigger>
                   <SelectContent>
@@ -457,7 +457,7 @@ export function SellPage() {
                     ))}
                   </SelectContent>
                 </Select>
-                {errors.condition && <p className="text-red-400 text-xs mt-1">{errors.condition}</p>}
+                {errors.condition && <p className="text-destructive text-xs mt-1">{errors.condition}</p>}
               </div>
 
               <div className="md:col-span-2">
@@ -472,8 +472,8 @@ export function SellPage() {
               </div>
             </div>
 
-            <div className="mt-8 p-4 bg-white/5 rounded-xl border border-white/10">
-              <h4 className="font-semibold text-white mb-4">Optional Specifications</h4>
+            <div className="mt-8 p-4 dark:bg-white/5 bg-black/5 rounded-xl dark:border border-white/10 border-black/10">
+              <h4 className="font-semibold dark:text-white text-foreground mb-4">Optional Specifications</h4>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div>
                   <Label htmlFor="engine">Engine</Label>
@@ -574,8 +574,8 @@ export function SellPage() {
         return (
           <div className="space-y-6">
             <div>
-              <h3 className="font-display text-2xl text-white mb-6">Description & Features</h3>
-              <p className="text-white/60 text-sm mb-6">
+              <h3 className="font-display text-2xl dark:text-white text-foreground mb-6">Description & Features</h3>
+              <p className="dark:text-white/60 text-foreground/60 text-sm mb-6">
                 Write a detailed description and list key features that make your vehicle special.
               </p>
             </div>
@@ -588,12 +588,12 @@ export function SellPage() {
                 onChange={(e) => handleInputChange('description', e.target.value)}
                 placeholder="Describe your vehicle in detail. Include information about its history, condition, modifications, maintenance records, and what makes it special..."
                 rows={8}
-                className={errors.description ? 'border-red-500' : ''}
+                className={errors.description ? 'border-destructive' : ''}
               />
-              <p className="text-white/40 text-xs mt-2">
+              <p className="dark:text-white/40 text-foreground/40 text-xs mt-2">
                 {formData.description.length} / 50 minimum characters
               </p>
-              {errors.description && <p className="text-red-400 text-xs mt-1">{errors.description}</p>}
+              {errors.description && <p className="text-destructive text-xs mt-1">{errors.description}</p>}
             </div>
 
             <div>
@@ -620,13 +620,13 @@ export function SellPage() {
                   {formData.features.map((feature, index) => (
                     <div
                       key={index}
-                      className="flex items-center gap-2 bg-white/5 border border-white/10 rounded-lg px-3 py-1.5"
+                      className="flex items-center gap-2 dark:bg-white/5 bg-black/5 dark:border border-white/10 border-black/10 rounded-lg px-3 py-1.5"
                     >
-                      <span className="text-sm text-white/80">{feature}</span>
+                      <span className="text-sm dark:text-white/80 text-foreground/80">{feature}</span>
                       <button
                         type="button"
                         onClick={() => removeFeature(index)}
-                        className="text-white/40 hover:text-white transition-colors"
+                        className="dark:text-white/40 text-foreground/40 dark:hover:text-white hover:text-foreground transition-colors"
                       >
                         <X className="w-4 h-4" />
                       </button>
@@ -642,17 +642,17 @@ export function SellPage() {
         return (
           <div className="space-y-6">
             <div>
-              <h3 className="font-display text-2xl text-white mb-6">Vehicle Images</h3>
-              <p className="text-white/60 text-sm mb-6">
+              <h3 className="font-display text-2xl dark:text-white text-foreground mb-6">Vehicle Images</h3>
+              <p className="dark:text-white/60 text-foreground/60 text-sm mb-6">
                 Upload high-quality photos of your vehicle. At least 3 images are required.
               </p>
             </div>
 
-            <div className="border-2 border-dashed border-white/20 rounded-xl p-8 text-center hover:border-racing-red/50 transition-colors">
-              <Upload className="w-12 h-12 text-white/40 mx-auto mb-4" />
+            <div className="border-2 border-dashed dark:border-white/20 border-black/20 rounded-xl p-8 text-center hover:border-racing-red/50 transition-colors">
+              <Upload className="w-12 h-12 dark:text-white/40 text-foreground/40 mx-auto mb-4" />
               <Label htmlFor="image-upload" className="cursor-pointer">
-                <span className="text-white font-semibold">Click to upload images</span>
-                <span className="text-white/60 text-sm block mt-2">
+                <span className="dark:text-white text-foreground font-semibold">Click to upload images</span>
+                <span className="dark:text-white/60 text-foreground/60 text-sm block mt-2">
                   PNG, JPG up to 10MB each (max 20 images)
                 </span>
               </Label>
@@ -666,7 +666,7 @@ export function SellPage() {
               />
             </div>
 
-            {errors.images && <p className="text-red-400 text-xs">{errors.images}</p>}
+            {errors.images && <p className="text-destructive text-xs">{errors.images}</p>}
 
             {formData.imagePreviews.length > 0 && (
               <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mt-6">
@@ -675,14 +675,14 @@ export function SellPage() {
                     <img
                       src={preview}
                       alt={`Preview ${index + 1}`}
-                      className="w-full h-32 object-cover rounded-lg border border-white/10"
+                      className="w-full h-32 object-cover rounded-lg dark:border border-white/10 border-black/10"
                     />
                     <button
                       type="button"
                       onClick={() => removeImage(index)}
-                      className="absolute top-2 right-2 w-6 h-6 bg-red-500 rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity"
+                      className="absolute top-2 right-2 w-6 h-6 bg-destructive rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity"
                     >
-                      <X className="w-4 h-4 text-white" />
+                      <X className="w-4 h-4 dark:text-white text-foreground" />
                     </button>
                     {index === 0 && (
                       <div className="absolute bottom-2 left-2 bg-racing-red text-white text-xs px-2 py-1 rounded">
@@ -700,8 +700,8 @@ export function SellPage() {
         return (
           <div className="space-y-6">
             <div>
-              <h3 className="font-display text-2xl text-white mb-6">Location</h3>
-              <p className="text-white/60 text-sm mb-6">
+              <h3 className="font-display text-2xl dark:text-white text-foreground mb-6">Location</h3>
+              <p className="dark:text-white/60 text-foreground/60 text-sm mb-6">
                 Where is your vehicle located? This helps buyers arrange pickup or shipping.
               </p>
             </div>
@@ -714,9 +714,9 @@ export function SellPage() {
                   value={formData.city}
                   onChange={(e) => handleInputChange('city', e.target.value)}
                   placeholder="Los Angeles"
-                  className={errors.city ? 'border-red-500' : ''}
+                  className={errors.city ? 'border-destructive' : ''}
                 />
-                {errors.city && <p className="text-red-400 text-xs mt-1">{errors.city}</p>}
+                {errors.city && <p className="text-destructive text-xs mt-1">{errors.city}</p>}
               </div>
 
               <div>
@@ -726,9 +726,9 @@ export function SellPage() {
                   value={formData.state}
                   onChange={(e) => handleInputChange('state', e.target.value)}
                   placeholder="California"
-                  className={errors.state ? 'border-red-500' : ''}
+                  className={errors.state ? 'border-destructive' : ''}
                 />
-                {errors.state && <p className="text-red-400 text-xs mt-1">{errors.state}</p>}
+                {errors.state && <p className="text-destructive text-xs mt-1">{errors.state}</p>}
               </div>
 
               <div>
@@ -738,9 +738,9 @@ export function SellPage() {
                   value={formData.zipCode}
                   onChange={(e) => handleInputChange('zipCode', e.target.value)}
                   placeholder="90001"
-                  className={errors.zipCode ? 'border-red-500' : ''}
+                  className={errors.zipCode ? 'border-destructive' : ''}
                 />
-                {errors.zipCode && <p className="text-red-400 text-xs mt-1">{errors.zipCode}</p>}
+                {errors.zipCode && <p className="text-destructive text-xs mt-1">{errors.zipCode}</p>}
               </div>
 
               <div>
@@ -760,8 +760,8 @@ export function SellPage() {
         return (
           <div className="space-y-6">
             <div>
-              <h3 className="font-display text-2xl text-white mb-6">Auction Settings</h3>
-              <p className="text-white/60 text-sm mb-6">
+              <h3 className="font-display text-2xl dark:text-white text-foreground mb-6">Auction Settings</h3>
+              <p className="dark:text-white/60 text-foreground/60 text-sm mb-6">
                 Set your starting bid, optional reserve price, and auction duration.
               </p>
             </div>
@@ -777,9 +777,9 @@ export function SellPage() {
                   placeholder="50000"
                   min="0"
                   step="100"
-                  className={errors.startingBid ? 'border-red-500' : ''}
+                  className={errors.startingBid ? 'border-destructive' : ''}
                 />
-                {errors.startingBid && <p className="text-red-400 text-xs mt-1">{errors.startingBid}</p>}
+                {errors.startingBid && <p className="text-destructive text-xs mt-1">{errors.startingBid}</p>}
               </div>
 
               <div>
@@ -792,12 +792,12 @@ export function SellPage() {
                   placeholder="60000"
                   min="0"
                   step="100"
-                  className={errors.reservePrice ? 'border-red-500' : ''}
+                  className={errors.reservePrice ? 'border-destructive' : ''}
                 />
-                <p className="text-white/40 text-xs mt-1">
+                <p className="dark:text-white/40 text-foreground/40 text-xs mt-1">
                   If bidding doesn't reach this price, you're not obligated to sell.
                 </p>
-                {errors.reservePrice && <p className="text-red-400 text-xs mt-1">{errors.reservePrice}</p>}
+                {errors.reservePrice && <p className="text-destructive text-xs mt-1">{errors.reservePrice}</p>}
               </div>
 
               <div className="md:col-span-2">
@@ -821,19 +821,19 @@ export function SellPage() {
                   </SelectContent>
                 </Select>
                 {formData.endDate && (
-                  <p className="text-white/60 text-sm mt-2">
+                  <p className="dark:text-white/60 text-foreground/60 text-sm mt-2">
                     Auction will end on: {new Date(formData.endDate).toLocaleDateString()}
                   </p>
                 )}
               </div>
             </div>
 
-            <div className="mt-8 p-6 bg-white/5 rounded-xl border border-white/10">
+            <div className="mt-8 p-6 dark:bg-white/5 bg-black/5 rounded-xl dark:border border-white/10 border-black/10">
               <div className="flex items-start gap-4">
                 <AlertCircle className="w-5 h-5 text-racing-red mt-0.5 flex-shrink-0" />
                 <div>
-                  <h4 className="font-semibold text-white mb-2">Important Information</h4>
-                  <ul className="text-white/60 text-sm space-y-1">
+                  <h4 className="font-semibold dark:text-white text-foreground mb-2">Important Information</h4>
+                  <ul className="dark:text-white/60 text-foreground/60 text-sm space-y-1">
                     <li>• Your listing will be reviewed before going live</li>
                     <li>• You can edit your listing before it's approved</li>
                     <li>• Once the auction starts, certain details cannot be changed</li>
@@ -852,18 +852,18 @@ export function SellPage() {
 
   return (
     <main ref={pageRef} className="relative pt-20 min-h-screen">
-      <div className="absolute inset-0 mesh-gradient opacity-30" />
+      <div className="absolute inset-0 mesh-gradient dark:opacity-30 opacity-20" />
       
       <div className="relative z-10 w-full px-4 sm:px-6 lg:px-12 py-8 sm:py-12">
         <div className="max-w-5xl mx-auto">
           {/* Header */}
           <div className="text-center mb-8 sm:mb-12">
-            <h1 className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl text-white mb-3 sm:mb-4 tracking-[0.02em] relative">
+            <h1 className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl dark:text-white text-foreground mb-3 sm:mb-4 tracking-[0.02em] relative">
               <span className="block">LIST YOUR</span>
               <span className="block text-gradient-accent">VEHICLE</span>
               <span className="absolute -bottom-4 left-1/2 -translate-x-1/2 w-24 h-1 bg-gradient-to-r from-transparent via-racing-red to-transparent" />
             </h1>
-            <p className="text-white/60 text-lg max-w-2xl mx-auto">
+            <p className="dark:text-white/60 text-foreground/60 text-lg max-w-2xl mx-auto">
               Create your listing in just a few steps. Fill out the form below to get started.
             </p>
           </div>
@@ -871,7 +871,7 @@ export function SellPage() {
           {/* Step Indicator */}
           <div className="mb-6 sm:mb-8 overflow-x-auto">
             <div className="flex items-center justify-between relative min-w-[600px] sm:min-w-0">
-              <div className="absolute top-1/2 left-0 right-0 h-0.5 bg-white/10 -translate-y-1/2" />
+              <div className="absolute top-1/2 left-0 right-0 h-0.5 dark:bg-white/10 bg-black/10 -translate-y-1/2" />
               <div
                 className="absolute top-1/2 left-0 h-0.5 bg-racing-red transition-all duration-500 -translate-y-1/2"
                 style={{ width: `${((currentStep - 1) / (STEPS.length - 1)) * 100}%` }}
@@ -889,18 +889,18 @@ export function SellPage() {
                           ? 'bg-racing-red border-racing-red scale-110'
                           : isCompleted
                           ? 'bg-racing-red/20 border-racing-red'
-                          : 'bg-charcoal-light border-white/20'
+                          : 'dark:bg-charcoal-light bg-card dark:border-white/20 border-black/20'
                       }`}
                     >
                       <StepIcon
                         className={`w-4 h-4 sm:w-5 sm:h-5 ${
-                          isActive || isCompleted ? 'text-white' : 'text-white/40'
+                          isActive || isCompleted ? 'dark:text-white text-foreground' : 'dark:text-white/40 text-foreground/40'
                         }`}
                       />
                     </div>
                     <span
                       className={`text-[10px] sm:text-xs mt-2 font-semibold uppercase tracking-wider text-center ${
-                        isActive ? 'text-white' : 'text-white/40'
+                        isActive ? 'dark:text-white text-foreground' : 'dark:text-white/40 text-foreground/40'
                       }`}
                     >
                       {step.title}
@@ -916,7 +916,7 @@ export function SellPage() {
             {renderStepContent()}
 
             {/* Navigation Buttons */}
-            <div className="flex items-center justify-between mt-8 sm:mt-12 pt-6 sm:pt-8 border-t border-white/10 gap-4">
+            <div className="flex items-center justify-between mt-8 sm:mt-12 pt-6 sm:pt-8 dark:border-t border-white/10 border-black/10 gap-4">
               <Button
                 type="button"
                 variant="outline"

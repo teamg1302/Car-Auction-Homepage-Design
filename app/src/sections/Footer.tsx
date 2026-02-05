@@ -28,7 +28,7 @@ const socialLinks = [
 
 export function Footer() {
   return (
-    <footer className="w-full bg-charcoal border-t border-white/[0.06]">
+    <footer className="w-full dark:bg-charcoal bg-background border-t dark:border-white/[0.06] border-black/[0.08]">
       <div className="w-full px-4 sm:px-6 lg:px-12 py-12 sm:py-16">
         <div className="max-w-6xl mx-auto">
           {/* Main Footer Content */}
@@ -39,11 +39,11 @@ export function Footer() {
                 <div className="w-10 h-10 rounded-xl bg-racing-red flex items-center justify-center">
                   <Zap className="w-5 h-5 text-white" />
                 </div>
-                <span className="font-display font-bold text-xl text-white">
+                <span className="font-display font-bold text-xl dark:text-white text-foreground">
                   AuctionAuto
                 </span>
               </a>
-              <p className="text-white/50 text-sm leading-relaxed">
+              <p className="dark:text-white/50 text-foreground/60 text-sm leading-relaxed">
                 Bid on cars worth driving. Live auctions for serious enthusiasts.
               </p>
             </div>
@@ -51,7 +51,7 @@ export function Footer() {
             {/* Link Columns */}
             {Object.values(footerLinks).map((section) => (
               <div key={section.title}>
-                <h4 className="font-display font-semibold text-white mb-4">
+                <h4 className="font-display font-semibold dark:text-white text-foreground mb-4">
                   {section.title}
                 </h4>
                 <ul className="space-y-2">
@@ -59,7 +59,7 @@ export function Footer() {
                     <li key={link}>
                       <a
                         href="#"
-                        className="text-white/50 text-sm hover:text-white transition-colors duration-300"
+                        className="dark:text-white/50 text-foreground/60 text-sm dark:hover:text-white hover:text-foreground transition-colors duration-300"
                       >
                         {link}
                       </a>
@@ -71,9 +71,9 @@ export function Footer() {
           </div>
 
           {/* Bottom Bar */}
-          <div className="flex flex-col sm:flex-row items-center justify-between pt-6 sm:pt-8 border-t border-white/[0.06] gap-4 sm:gap-0">
+          <div className="flex flex-col sm:flex-row items-center justify-between pt-6 sm:pt-8 dark:border-t dark:border-white/[0.06] border-t border-black/[0.08] gap-4 sm:gap-0">
             {/* Copyright */}
-            <p className="text-white/40 text-xs sm:text-sm text-center sm:text-left">
+            <p className="dark:text-white/40 text-foreground/50 text-xs sm:text-sm text-center sm:text-left">
               © 2026 AuctionAuto. All rights reserved.
             </p>
 
@@ -84,7 +84,7 @@ export function Footer() {
                   key={social.label}
                   href={social.href}
                   aria-label={social.label}
-                  className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-white/50 hover:text-white hover:bg-white/10 transition-all duration-300"
+                  className="w-10 h-10 rounded-full dark:bg-white/5 bg-black/5 flex items-center justify-center dark:text-white/50 text-foreground/60 dark:hover:text-white hover:text-foreground dark:hover:bg-white/10 hover:bg-black/10 transition-all duration-300"
                 >
                   <social.icon className="w-5 h-5" />
                 </a>

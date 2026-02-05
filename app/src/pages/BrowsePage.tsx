@@ -40,7 +40,7 @@ export function BrowsePage() {
   };
 
   return (
-    <div className="min-h-screen bg-charcoal">
+    <div className="min-h-screen dark:bg-charcoal bg-background">
       <div className="w-full px-4 sm:px-6 lg:px-12 pt-24 sm:pt-28 md:pt-32 pb-8 sm:pb-12">
         <div className="max-w-7xl mx-auto">
           <div className="mb-8 sm:mb-12">
@@ -48,7 +48,7 @@ export function BrowsePage() {
               BROWSE AUCTIONS
               <span className="absolute -bottom-4 left-0 w-24 h-1 bg-gradient-to-r from-transparent via-racing-red to-transparent" />
             </h1>
-            <p className="text-white/70 text-base sm:text-lg font-light tracking-wide">
+            <p className="dark:text-white/70 text-foreground/70 text-base sm:text-lg font-light tracking-wide">
               Discover your next dream car from our live auctions
             </p>
           </div>
@@ -67,7 +67,7 @@ export function BrowsePage() {
             <div className="lg:col-span-3">
               {/* Sort Bar */}
               <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between mb-4 sm:mb-6 gap-3 sm:gap-0">
-                <p className="text-white/70 text-sm sm:text-base">
+                <p className="dark:text-white/70 text-foreground/70 text-sm sm:text-base">
                   {isLoading ? 'Loading...' : `${auctions.length} listings found`}
                 </p>
                 <Select
@@ -76,12 +76,12 @@ export function BrowsePage() {
                     setFilters({ ...filters, sortBy: value as any })
                   }
                 >
-                  <SelectTrigger className="w-full sm:w-[200px] bg-white/5 border-white/10 text-white">
+                  <SelectTrigger className="w-full sm:w-[200px] dark:bg-white/5 bg-black/5 dark:border-white/10 border-black/10 dark:text-white text-foreground">
                     <SelectValue />
                   </SelectTrigger>
-                  <SelectContent className="bg-charcoal-light border-white/10">
+                  <SelectContent className="dark:bg-charcoal-light bg-card dark:border-white/10 border-black/10">
                     {SORT_OPTIONS.map((option) => (
-                      <SelectItem key={option.value} value={option.value} className="text-white">
+                      <SelectItem key={option.value} value={option.value} className="dark:text-white text-foreground">
                         {option.label}
                       </SelectItem>
                     ))}
@@ -92,11 +92,11 @@ export function BrowsePage() {
               {/* Loading State */}
               {isLoading ? (
                 <div className="text-center py-12">
-                  <p className="text-white/50">Loading auctions...</p>
+                  <p className="dark:text-white/50 text-foreground/50">Loading auctions...</p>
                 </div>
               ) : auctions.length === 0 ? (
                 <div className="text-center py-12">
-                  <p className="text-white/50">No auctions found. Try adjusting your filters.</p>
+                  <p className="dark:text-white/50 text-foreground/50">No auctions found. Try adjusting your filters.</p>
                 </div>
               ) : (
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-4 sm:gap-6">

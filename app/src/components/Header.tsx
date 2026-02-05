@@ -1,7 +1,8 @@
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
-import { Menu, X, Zap } from 'lucide-react';
+import { Menu, X, Zap, Sun, Moon } from 'lucide-react';
+import { useTheme } from 'next-themes';
 import { ROUTES } from '@/constants';
 
 const navLinks = [
@@ -14,6 +15,13 @@ export function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const location = useLocation();
+  const { theme, setTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
+
+  // Avoid hydration mismatch
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -32,7 +40,7 @@ export function Header() {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-700 ${
         isScrolled
-          ? 'bg-charcoal/95 backdrop-blur-2xl border-b border-white/[0.12] shadow-[0_4px_20px_rgba(0,0,0,0.3)]'
+          ? 'dark:bg-charcoal/95 bg-white/95 backdrop-blur-2xl dark:border-b dark:border-white/[0.12] border-b border-black/[0.08] dark:shadow-[0_4px_20px_rgba(0,0,0,0.3)] shadow-[0_4px_20px_rgba(0,0,0,0.1)]'
           : 'bg-transparent'
       }`}
     >
@@ -44,7 +52,7 @@ export function Header() {
               <Zap className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
               <div className="absolute inset-0 rounded-xl bg-gradient-to-br from-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
             </div>
-            <span className="font-display text-lg sm:text-xl md:text-2xl text-white tracking-[0.05em] relative">
+            <span className="font-display text-lg sm:text-xl md:text-2xl dark:text-white text-foreground tracking-[0.05em] relative">
               AUCTION
               <span className="text-racing-red">AUTO</span>
               <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-racing-red to-transparent group-hover:w-full transition-all duration-500" />
@@ -59,8 +67,8 @@ export function Header() {
                 to={link.href}
                 className={`text-sm font-semibold tracking-wider uppercase transition-all duration-300 relative group ${
                   location.pathname === link.href
-                    ? 'text-white'
-                    : 'text-white/60 hover:text-white'
+                    ? 'dark:text-white text-foreground'
+                    : 'dark:text-white/60 text-foreground/70 dark:hover:text-white hover:text-foreground'
                 }`}
               >
                 <span className="relative z-10">{link.label}</span>
@@ -76,9 +84,24 @@ export function Header() {
 
           {/* Desktop CTA */}
           <div className="hidden md:flex items-center gap-5">
+            {/* Theme Toggle */}
+            {mounted && (
+              <button
+                onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
+                className="p-2 rounded-lg dark:text-white/60 text-foreground/60 dark:hover:text-white hover:text-foreground dark:hover:bg-white/10 hover:bg-black/10 transition-all duration-300 relative group"
+                aria-label="Toggle theme"
+              >
+                {theme === 'dark' ? (
+                  <Sun className="w-5 h-5" />
+                ) : (
+                  <Moon className="w-5 h-5" />
+                )}
+                <span className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-0 h-0.5 bg-racing-red group-hover:w-full transition-all duration-300" />
+              </button>
+            )}
             <Link
               to={ROUTES.SIGN_IN}
-              className="text-sm font-semibold text-white/60 hover:text-white transition-all duration-300 uppercase tracking-wider relative group"
+              className="text-sm font-semibold dark:text-white/60 text-foreground/60 dark:hover:text-white hover:text-foreground transition-all duration-300 uppercase tracking-wider relative group"
             >
               Sign In
               <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-racing-red group-hover:w-full transition-all duration-300" />
@@ -93,7 +116,7 @@ export function Header() {
 
           {/* Mobile Menu Button */}
           <button
-            className="md:hidden p-2 text-white"
+            className="md:hidden p-2 dark:text-white text-foreground"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           >
             {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -103,7 +126,7 @@ export function Header() {
 
       {/* Mobile Menu */}
       <div
-        className={`md:hidden absolute top-full left-0 right-0 bg-charcoal/95 backdrop-blur-xl border-b border-white/[0.06] transition-all duration-300 ${
+        className={`md:hidden absolute top-full left-0 right-0 dark:bg-charcoal/95 bg-white/95 backdrop-blur-xl dark:border-b dark:border-white/[0.06] border-b border-black/[0.08] transition-all duration-300 ${
           isMobileMenuOpen ? 'opacity-100 visible' : 'opacity-0 invisible'
         }`}
       >
@@ -115,18 +138,41 @@ export function Header() {
               onClick={handleNavClick}
               className={`text-left text-base font-medium transition-colors duration-300 py-2 ${
                 location.pathname === link.href
-                  ? 'text-white'
-                  : 'text-white/70 hover:text-white'
+                  ? 'dark:text-white text-foreground'
+                  : 'dark:text-white/70 text-foreground/70 dark:hover:text-white hover:text-foreground'
               }`}
             >
               {link.label}
             </Link>
           ))}
-          <hr className="border-white/10 my-2" />
+          <hr className="dark:border-white/10 border-black/10 my-2" />
+          {/* Mobile Theme Toggle */}
+          {mounted && (
+            <button
+              onClick={() => {
+                setTheme(theme === 'dark' ? 'light' : 'dark');
+                handleNavClick();
+              }}
+              className="flex items-center gap-3 text-left text-base font-medium dark:text-white/70 text-foreground/70 dark:hover:text-white hover:text-foreground transition-colors duration-300 py-2"
+              aria-label="Toggle theme"
+            >
+              {theme === 'dark' ? (
+                <>
+                  <Sun className="w-5 h-5" />
+                  <span>Light Mode</span>
+                </>
+              ) : (
+                <>
+                  <Moon className="w-5 h-5" />
+                  <span>Dark Mode</span>
+                </>
+              )}
+            </button>
+          )}
           <Link
             to={ROUTES.SIGN_IN}
             onClick={handleNavClick}
-            className="text-left text-base font-medium text-white/70 hover:text-white transition-colors duration-300 py-2"
+            className="text-left text-base font-medium dark:text-white/70 text-foreground/70 dark:hover:text-white hover:text-foreground transition-colors duration-300 py-2"
           >
             Sign In
           </Link>

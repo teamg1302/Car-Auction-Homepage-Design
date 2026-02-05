@@ -18,7 +18,7 @@ export function CarCard({ auction, className = '' }: CarCardProps) {
 
   return (
     <div
-      className={`group relative bg-charcoal-light rounded-2xl overflow-hidden border border-white/[0.12] card-shadow hover-lift ${className}`}
+      className={`group relative dark:bg-charcoal-light bg-card rounded-2xl overflow-hidden dark:border border-white/[0.12] border-black/[0.08] card-shadow hover-lift ${className}`}
     >
       {/* Decorative gradient overlay */}
       <div className="absolute inset-0 bg-gradient-to-br from-racing-red/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
@@ -29,9 +29,9 @@ export function CarCard({ auction, className = '' }: CarCardProps) {
           <img
             src={car.images[0] || '/images/placeholder.jpg'}
             alt={`${car.year} ${car.make} ${car.model}`}
-            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+            className="w-full h-full object-cover transition-all duration-700 group-hover:scale-110 group-hover:brightness-110 group-hover:contrast-105 car-image-glow"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-charcoal-light via-charcoal-light/50 to-transparent" />
+          <div className="absolute inset-0 dark:bg-gradient-to-t dark:from-charcoal-light dark:via-charcoal-light/50 dark:to-transparent bg-gradient-to-t from-card via-card/50 to-transparent opacity-100 group-hover:opacity-0 transition-opacity duration-500" />
           
           {/* Animated overlay on hover */}
           <div className="absolute inset-0 bg-gradient-to-br from-racing-red/0 via-racing-red/0 to-racing-red/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
@@ -51,7 +51,7 @@ export function CarCard({ auction, className = '' }: CarCardProps) {
           {seller && (
             <Badge
               variant="secondary"
-              className="absolute top-4 right-4 bg-charcoal/90 text-white/90 backdrop-blur-md border border-white/10 font-medium text-xs uppercase tracking-wider px-3 py-1.5"
+              className="absolute top-4 right-4 dark:bg-charcoal/90 bg-card/90 dark:text-white/90 text-foreground/90 backdrop-blur-md dark:border border-white/10 border-black/10 font-medium text-xs uppercase tracking-wider px-3 py-1.5"
             >
               {seller.type}
             </Badge>
@@ -63,54 +63,54 @@ export function CarCard({ auction, className = '' }: CarCardProps) {
       <div className="p-4 sm:p-6 relative z-10">
         {/* Title */}
         <Link to={`${ROUTES.CAR_DETAILS.replace(':id', car.id)}`}>
-          <h3 className="font-display text-lg sm:text-xl text-white mb-2 hover:text-racing-red transition-colors duration-300 cursor-pointer tracking-wide group-hover:translate-x-1 inline-block">
+          <h3 className="font-display text-lg sm:text-xl dark:text-white text-foreground mb-2 hover:text-racing-red transition-colors duration-300 cursor-pointer tracking-wide group-hover:translate-x-1 inline-block">
             {car.year} {car.make} {car.model}
           </h3>
         </Link>
 
         {/* Meta */}
-        <p className="text-xs sm:text-sm text-white/60 mb-4 sm:mb-5 font-medium tracking-wide">
+        <p className="text-xs sm:text-sm dark:text-white/60 text-foreground/60 mb-4 sm:mb-5 font-medium tracking-wide">
           {car.type} · {car.mileageDisplay} · {car.transmission}
         </p>
 
         {/* Specs */}
-        <div className="flex items-center gap-3 sm:gap-5 mb-4 sm:mb-5 text-xs text-white/50">
+        <div className="flex items-center gap-3 sm:gap-5 mb-4 sm:mb-5 text-xs dark:text-white/50 text-foreground/50">
           <div className="flex items-center gap-2 group/spec">
-            <div className="w-8 h-8 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center group-hover/spec:bg-racing-red/20 group-hover/spec:border-racing-red/50 transition-all duration-300">
-              <Gauge className="w-3.5 h-3.5 text-white/70 group-hover/spec:text-racing-red transition-colors" />
+            <div className="w-8 h-8 rounded-lg dark:bg-white/5 bg-black/5 dark:border border-white/10 border-black/10 flex items-center justify-center group-hover/spec:bg-racing-red/20 group-hover/spec:border-racing-red/50 transition-all duration-300">
+              <Gauge className="w-3.5 h-3.5 dark:text-white/70 text-foreground/70 group-hover/spec:text-racing-red transition-colors" />
             </div>
             <span className="font-medium">{car.mileageDisplay}</span>
           </div>
           <div className="flex items-center gap-2 group/spec">
-            <div className="w-8 h-8 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center group-hover/spec:bg-racing-red/20 group-hover/spec:border-racing-red/50 transition-all duration-300">
-              <Settings2 className="w-3.5 h-3.5 text-white/70 group-hover/spec:text-racing-red transition-colors" />
+            <div className="w-8 h-8 rounded-lg dark:bg-white/5 bg-black/5 dark:border border-white/10 border-black/10 flex items-center justify-center group-hover/spec:bg-racing-red/20 group-hover/spec:border-racing-red/50 transition-all duration-300">
+              <Settings2 className="w-3.5 h-3.5 dark:text-white/70 text-foreground/70 group-hover/spec:text-racing-red transition-colors" />
             </div>
             <span className="font-medium">{car.transmission}</span>
           </div>
           <div className="flex items-center gap-2 group/spec">
-            <div className="w-8 h-8 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center group-hover/spec:bg-racing-red/20 group-hover/spec:border-racing-red/50 transition-all duration-300">
-              <Fuel className="w-3.5 h-3.5 text-white/70 group-hover/spec:text-racing-red transition-colors" />
+            <div className="w-8 h-8 rounded-lg dark:bg-white/5 bg-black/5 dark:border border-white/10 border-black/10 flex items-center justify-center group-hover/spec:bg-racing-red/20 group-hover/spec:border-racing-red/50 transition-all duration-300">
+              <Fuel className="w-3.5 h-3.5 dark:text-white/70 text-foreground/70 group-hover/spec:text-racing-red transition-colors" />
             </div>
             <span className="font-medium">{car.fuel}</span>
           </div>
         </div>
 
         {/* Location */}
-        <div className="flex items-center gap-2 text-xs text-white/50 mb-5">
-          <MapPin className="w-4 h-4 text-white/60" />
+        <div className="flex items-center gap-2 text-xs dark:text-white/50 text-foreground/50 mb-5">
+          <MapPin className="w-4 h-4 dark:text-white/60 text-foreground/60" />
           <span className="font-medium">{car.location.displayName}</span>
         </div>
 
         {/* Bid Info */}
-        <div className="flex items-center justify-between mb-4 sm:mb-6 p-3 sm:p-4 rounded-xl bg-white/5 border border-white/10 backdrop-blur-sm">
+        <div className="flex items-center justify-between mb-4 sm:mb-6 p-3 sm:p-4 rounded-xl dark:bg-white/5 bg-black/5 dark:border border-white/10 border-black/10 backdrop-blur-sm">
           <div>
-            <p className="text-xs text-white/60 mb-1 sm:mb-1.5 uppercase tracking-wider font-semibold">Current bid</p>
+            <p className="text-xs dark:text-white/60 text-foreground/60 mb-1 sm:mb-1.5 uppercase tracking-wider font-semibold">Current bid</p>
             <p className="font-display text-xl sm:text-2xl text-gradient-accent">
               {formatPrice(currentBid)}
             </p>
           </div>
           <div className="text-right">
-            <div className="flex items-center gap-1 sm:gap-1.5 text-xs text-white/60 mb-1 sm:mb-1.5 justify-end">
+            <div className="flex items-center gap-1 sm:gap-1.5 text-xs dark:text-white/60 text-foreground/60 mb-1 sm:mb-1.5 justify-end">
               <Users className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
               <span className="font-medium">{bidCount} bids</span>
             </div>

@@ -15,9 +15,9 @@ function App() {
     <BrowserRouter>
       <AuthProvider>
         <CartProvider>
-          <div className="relative min-h-screen bg-charcoal">
+          <div className="relative min-h-screen bg-background">
             {/* Atmospheric background mesh */}
-            <div className="fixed inset-0 mesh-gradient opacity-30 pointer-events-none z-0" />
+            <div className="fixed inset-0 mesh-gradient dark:opacity-30 opacity-20 pointer-events-none z-0" />
             
             {/* Grain Overlay */}
             <div className="grain-overlay" />
